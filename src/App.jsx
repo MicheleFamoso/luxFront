@@ -1,15 +1,30 @@
 import "./App.css";
-import LuxNavBar from "./component/LuxNavBar";
+
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import PublicHome from "./component/PublicHome";
+import PublicLayout from "./component/PublicLayout";
+import AdminLayout from "./component/AdminLayout";
+import AdminHome from "./component/AdminHome";
+import AdminLogin from "./component/AdminLogin";
+
 
 function App() {
   return (
-    <div className=" grid grid-rows-[auto_1fr_auto] min-h-screen bg-yellow-50/60  ">
-      <header className=" "> 
-        <LuxNavBar/>
-      </header>
-      <main className="">2</main>
-      <footer className="">3</footer>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<PublicLayout/>}>
+         <Route index element ={<PublicHome/>}/>
+        </Route>
+
+        <Route path="/login" element={<AdminLogin/>}/>
+        <Route path="/admin" element={<AdminLayout/>}>
+        <Route index element ={<AdminHome/>}/>
+        </Route>
+
+
+      </Routes>
+    </BrowserRouter>
   );
 }
 
