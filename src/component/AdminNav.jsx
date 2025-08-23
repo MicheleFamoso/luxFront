@@ -1,20 +1,47 @@
-import { useNavigate } from "react-router-dom"
+import { useNavigate, useLocation } from "react-router-dom";
 
-const AdminNav =()=>{
-    const navigate = useNavigate()
-    return(
+const AdminNav = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  return (
+    <nav className="bg-purple-400  py-2 flex justify-around md:justify-start  ">
+        <div className="md:w-6/12 md:m-auto">
+               <button
+        onClick={() => {
+          navigate("/admin");
+        }}
+        className={`md:mr-6  py-1 px-4 rounded-2xl hover:bg-lime-100 ${
+          location.pathname === "/admin" ? "bg-lime-300" : "bg-purple-500"
+        }  `}
+      >
+        Post
+      </button>
+      <button
+        onClick={() => {
+          navigate("/admin/mostre");
+        }}
+        className={`md:mr-6   py-1 px-4 rounded-2xl hover:bg-lime-100 ${
+          location.pathname === "/admin/mostre"
+            ? "bg-lime-300"
+            : "bg-purple-500"
+        } `}
+      >
+        Mostre
+      </button>
+      <button
+        onClick={() => {
+          navigate("/admin/bio");
+        }}
+        className={`  py-1 px-4 rounded-2xl hover:bg-purple-300 ${
+          location.pathname === "/admin/bio" ? "bg-lime-300" : "bg-purple-500"
+        }`}
+      >
+        Bio
+      </button>
+        </div>
+   
+    </nav>
+  );
+};
 
-   <nav className="bg-purple-400 px-20 py-2 flex justify-around md:justify-start ">
-        
-        <button 
-        onClick={()=>{navigate("/admin")}}
-        className="md:mr-6">Post</button>
-        <button className="md:mr-6">Mostre</button>
-        <button>Bio</button>
-   </nav>
-    )
-
-
-}
-
-export default AdminNav
+export default AdminNav;
