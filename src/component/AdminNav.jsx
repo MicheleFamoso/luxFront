@@ -10,8 +10,8 @@ const AdminNav = () => {
         onClick={() => {
           navigate("/admin");
         }}
-        className={`md:mr-6  py-1 px-4 rounded-2xl hover:bg-lime-100 ${
-          location.pathname === "/admin" ? "bg-lime-300" : "bg-purple-500"
+        className={`md:mr-6  py-1 px-4 rounded-2xl hover:bg-purple-600 hover:text-white ${
+          location.pathname === "/admin" ? "bg-lime-300 " : ""
         }  `}
       >
         Post
@@ -20,10 +20,10 @@ const AdminNav = () => {
         onClick={() => {
           navigate("/admin/mostre");
         }}
-        className={`md:mr-6   py-1 px-4 rounded-2xl hover:bg-lime-100 ${
+        className={`md:mr-6   py-1 px-4 rounded-2xl  hover:bg-purple-600 hover:text-white ${
           location.pathname === "/admin/mostre"
             ? "bg-lime-300"
-            : "bg-purple-500"
+            : ""
         } `}
       >
         Mostre
@@ -32,8 +32,8 @@ const AdminNav = () => {
         onClick={() => {
           navigate("/admin/bio");
         }}
-        className={`  py-1 px-4 rounded-2xl hover:bg-purple-300 ${
-          location.pathname === "/admin/bio" ? "bg-lime-300" : "bg-purple-500"
+        className={`  py-1 px-4 rounded-2xl   hover:bg-purple-600 hover:text-white ${
+          location.pathname === "/admin/bio" ? "bg-lime-300" : ""
         }`}
       >
         Bio
