@@ -32,9 +32,11 @@ const AdminBio = () => {
   return (
     <div className="   mt-2 md:mt-6 md:w-6/12 md:m-auto static">
       <div className="ml-6">
-        <h1 className="text-6xl">Bio</h1>
+        
 
         {bio ? (
+          <div>
+          <h1 className="text-6xl">Bio</h1>
           <div className="  mt-10  ">
             <div className="flex gap-10 items-end">
               <p className=" text-xl text-neutral-700 w-12">Nome </p>
@@ -63,8 +65,12 @@ const AdminBio = () => {
               </button>
             </div>
           </div>
+          </div>
         ) : (
-          <p className="text-center font-bold mt-3">Caricamento in corso...</p>
+          <div className="flex justify-center mt-10">
+             <button className="bg-purple-400 px-4 py-2 rounded-sm text-white hover:bg-lime-400">Aggiungi Bio</button>
+          </div>
+        
         )}
       </div>
 
