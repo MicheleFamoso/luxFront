@@ -114,7 +114,7 @@ const AdminBio = () => {
               <div className="flex gap-10 mt-6 items-end">
                 <p className=" text-xl text-neutral-700 w-12">Bio </p>
 
-                <p className="text-2xl mr-15 md:mr-5"> {bios.bio}</p>
+                <p className="text-2xl mr-15 ml-5 md:mr-5"> {bios.bio}</p>
               </div>
               <hr className="border-t-1 border-t-purple-400 mr-10 ml-20" />
               <div className="flex mt-6 md:justify-end justify-center md:mr-10">

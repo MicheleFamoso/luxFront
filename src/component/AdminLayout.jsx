@@ -7,7 +7,7 @@ const AdminLayout = () => {
       <header className=" ">
         <AdminNav/>
       </header>
-      <main className="">
+      <main className="pt-15 md:pt-10">
         <Outlet />
       </main>
       <footer className="text-center  mb-4 ">
