@@ -142,7 +142,7 @@ const AdminMostre = () => {
                               setTitolo(mostra.titolo);
                               setLuogo(mostra.luogo);
                               setData(mostra.data);
-                             setDescrizione(mostra.descrizione);
+                              setDescrizione(mostra.descrizione);
                               setShowModal(true);
                             }}
                             className="bg-violet-300 px-3 py-1 rounded-2xl hover:bg-amber-400"
@@ -172,17 +172,16 @@ const AdminMostre = () => {
         {showModal && (
           <div className="p-5">
             <div className="flex justify-between">
-              <p className="font-bold text-3xl">Mostra</p>
+              <p className="font-bold text-5xl ">Mostra</p>
               <button
-                onClick={() =>{
-                   setId("");
-                              setTitolo("");
-                              setLuogo("");
-                              setData("");
-                             setDescrizione("");
-                  setShowModal(false)
-                }
-                   }
+                onClick={() => {
+                  setId("");
+                  setTitolo("");
+                  setLuogo("");
+                  setData("");
+                  setDescrizione("");
+                  setShowModal(false);
+                }}
                 className="bg-violet-200 hover:bg-red-500 px-4 pt-2 pb-1 rounded-full"
               >
                 X
@@ -197,15 +196,16 @@ const AdminMostre = () => {
                   handleMostra();
                 }
                 setId("");
-  setTitolo("");
-  setLuogo("");
-  setData("");
-  setDescrizione("");
-  setShowModal(false);
+                setTitolo("");
+                setLuogo("");
+                setData("");
+                setDescrizione("");
+                setShowModal(false);
               }}
-              className="w-fit"
+              className=" mt-16 "
             >
-              <div className="flex mt-6   gap-10 ">
+             
+                     <div className="flex mt-6   gap-10 md:justify-center ">
                 <label htmlFor="titolo" className="w-22  ">
                   Titolo{" "}
                 </label>
@@ -217,7 +217,7 @@ const AdminMostre = () => {
                   onChange={(e) => setTitolo(e.target.value)}
                 />
               </div>
-              <div className="flex mt-6 gap-10 ">
+              <div className="flex mt-6 gap-10 md:justify-center ">
                 <label htmlFor="luogo" className="w-22">
                   Luogo
                 </label>
@@ -229,7 +229,7 @@ const AdminMostre = () => {
                   onChange={(e) => setLuogo(e.target.value)}
                 />
               </div>
-              <div className="flex mt-6 gap-10 ">
+              <div className="flex mt-6 gap-10 md:justify-center ">
                 <label htmlFor="data" className="w-22">
                   Data
                 </label>
@@ -241,7 +241,7 @@ const AdminMostre = () => {
                   onChange={(e) => setData(e.target.value)}
                 />
               </div>
-              <div className="flex mt-6 gap-10 ">
+              <div className="flex mt-6 gap-10 md:justify-center ">
                 <label htmlFor="descrizione" className="w-22">
                   Descrizione
                 </label>
@@ -254,7 +254,7 @@ const AdminMostre = () => {
                   onChange={(e) => setDescrizione(e.target.value)}
                 ></textarea>
               </div>
-              <div className="flex justify-end mt-10 ">
+              <div className="flex justify-center mt-10 ">
                 <button
                   type="submit"
                   className="bg-purple-400 px-4 py-2 rounded-3xl text-white hover:bg-lime-400"
@@ -262,6 +262,8 @@ const AdminMostre = () => {
                   Salva
                 </button>
               </div>
+              
+         
             </form>
           </div>
         )}

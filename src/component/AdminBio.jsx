@@ -4,9 +4,10 @@ const AdminBio = () => {
   const [bios, setBios] = useState({});
   const [modal, showModal] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-  const[nome,setNome] = useState("")
-  const [email,setEmail] = useState("")
-  const [bio,setBio]= useState("")
+  const[nome,setNome] = useState("");
+  const [email,setEmail] = useState("");
+  const [bio,setBio]= useState("");
+
 
   const handleBio = async () => {
     const token = localStorage.getItem("token");
@@ -75,6 +76,10 @@ const AdminBio = () => {
     }
   }
 
+
+
+
+  
   useEffect(() => {
     handleBio();
   }, []);
@@ -98,21 +103,21 @@ const AdminBio = () => {
         ) : (
           <div>
             <h1 className="text-6xl">Bio</h1>
-            <div className="  mt-10  ">
+            <div className="  mt-10   bg-violet-200 px-5 py-10 rounded-3xl">
               <div className="flex gap-10 items-end">
-                <p className=" text-xl text-neutral-700 w-12">Nome </p>
+                <p className=" text-xl text-violet-900 w-12">Nome </p>
 
                 <p className="text-2xl">{bios.nome}</p>
               </div>
               <hr className="border-t-1 border-t-purple-400 mr-10 ml-20" />
               <div className="flex gap-10 mt-6 items-end">
-                <p className=" text-xl text-neutral-700 w-12">Email </p>
+                <p className=" text-xl text-violet-900 w-12">Email </p>
 
                 <p className="text-2xl">{bios.email}</p>
               </div>
               <hr className="border-t-1 border-t-purple-400 mr-10 ml-20" />
               <div className="flex gap-10 mt-6 items-end">
-                <p className=" text-xl text-neutral-700 w-12">Bio </p>
+                <p className=" text-xl text-violet-900 w-12">Bio </p>
 
                 <p className="text-2xl mr-15 ml-5 md:mr-5"> {bios.bio}</p>
               </div>
@@ -122,7 +127,7 @@ const AdminBio = () => {
                   onClick={() => showModal(true)
                     
                   }
-                  className="bg-purple-200 py-2 px-4 rounded-4xl hover:bg-purple-500 hover:text-white"
+                  className="bg-purple-400 py-2 px-4 rounded-4xl hover:bg-purple-700 hover:text-white"
                 >
                   Modifica
                 </button>
