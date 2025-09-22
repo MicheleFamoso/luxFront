@@ -9,10 +9,12 @@ const AdminHome = () => {
   const [secondaImmagine, setSecondaImmagine] = useState("");
   const [terzaImmagine, setTerzaImmagine] = useState("");
   const [data, setData] = useState("");
- 
+  const [id,setId]=useState("")
   const [dimensione, setDimensione] = useState("");
   const [descrizione, setDescrizione] = useState("");
   const [showModal, setShowModal] = useState(false);
+  const [deleteModal,setDeleteModal] = useState(false)
+  const [titoloMostra,SetTitoloMostra] = useState("")
 
   const handlePost = async () => {
     try {
@@ -42,8 +44,7 @@ const AdminHome = () => {
           secondaImmagine,
           terzaImmagine,
           data,
-         
-          descrizione,
+         descrizione,
           dimensione,
         }),
         headers: {
@@ -60,6 +61,46 @@ const AdminHome = () => {
       console.log(err);
     }
   };
+
+    const handlePostUpdate = async () => {
+    try {
+      const response = await fetch("http://localhost:8080/post/" + id, {
+        method: "PUT",
+        body: JSON.stringify({ titolo,primaImmagine,secondaImmagine ,terzaImmagine ,data, descrizione,dimensione }),
+        headers: {
+          "Content-type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      if (!response.ok) {
+        throw new Error("errore nella modifica della mostra");
+      }
+      handlePost();
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+
+  const deletepost = async()=>{
+      
+    try {
+      const response = await fetch("http://localhost:8080/post/" + id, {
+        method: "DELETE",
+        headers: {
+          "Content-type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      if (!response.ok) {
+        throw new Error("Errore nell'eliminazione del post");
+      }
+      handlePost()
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  
 
   useEffect(() => {
     handlePost();
@@ -100,10 +141,28 @@ const AdminHome = () => {
                   <p className="text-violet-800">{post.data}</p>
                 </div>
                 <div className="flex gap-4 justify-end mt-4 mr-6">
-                  <button className="bg-violet-300 px-3 py-1 rounded-2xl hover:bg-amber-400">
+                  <button
+                  onClick={()=>{
+                    setId(post.id)
+                    setData(post.data)
+                    setDescrizione(post.descrizione)
+                    setDimensione(post.dimensione)
+                    setTitolo(post.titolo)
+                    setPrimaImmagine(post.primaImmagine)
+                    setSecondaImmagine(post.secondaImmagine)
+                    setTerzaImmagine(post.terzaImmagine)
+                  setShowModal(true)
+                  }}
+                  className="bg-violet-300 px-3 py-1 rounded-2xl hover:bg-amber-400">
                     Modifica
                   </button>
-                  <button className="bg-violet-300 px-3 py-1 rounded-2xl hover:bg-red-400">
+                  <button 
+                  onClick={()=>{
+                    setId(post.id),
+                    setDeleteModal(true)
+                    SetTitoloMostra(post.titolo)
+                  }}
+                  className="bg-violet-300 px-3 py-1 rounded-2xl hover:bg-red-400">
                     Elimina
                   </button>
                 </div>
@@ -117,7 +176,17 @@ const AdminHome = () => {
             <div className="flex justify-between">
               <p className="font-bold text-5xl">Post</p>
               <button
-                onClick={() => setShowModal(false)}
+                onClick={() => {
+                  setId("")
+                    setData("")
+                    setDescrizione("")
+                    setDimensione("")
+                    setTitolo("")
+                    setPrimaImmagine("")
+                    setSecondaImmagine("")
+                    setTerzaImmagine("")
+                  
+                  setShowModal(false)}}
                 className="bg-violet-200 hover:bg-red-500 px-4 pt-2 pb-1 rounded-full"
               >
                 X
@@ -127,8 +196,21 @@ const AdminHome = () => {
               className="mt-16"
               onSubmit={(e) => {
                 e.preventDefault();
+                if(id !== ""){
+                  handlePostUpdate()
+                }else
                 handleCreatePost();
-              }}
+                 setId("")
+                    setData("")
+                    setDescrizione("")
+                    setDimensione("")
+                    setTitolo("")
+                    setPrimaImmagine("")
+                    setSecondaImmagine("")
+                    setTerzaImmagine("")
+                  
+                  setShowModal(false)}
+              }
             >
               <div className="flex mt-6 gap-10 md:justify-center">
                 <label htmlFor="titolo" className="w-22">
@@ -224,6 +306,43 @@ const AdminHome = () => {
             </form>
           </div>
         )}
+          {deleteModal &&
+           <div className="fixed inset-0 bg-black/90 bg-opacity-50 flex justify-center items-center z-50">
+            <div className="bg-violet-50 px-8 py-6 rounded-3xl">
+              <h2 className="text-xl font-bold mb-4">Conferma eliminazione</h2>
+              <p className="mb-6">
+                Sei sicuro di voler eliminare <span className="font-bold">{titoloMostra}
+                  </span>
+                <span className="font-bold text-violet-950">
+          
+                </span>
+                ?
+              </p>
+              <div className="flex justify-around">
+                <button
+                  onClick={() => {
+                    setId("");
+                     setDeleteModal(false)
+                  }}
+                  className="bg-violet-200 py-2 px-4 rounded-3xl hover:bg-violet-600 hover:text-white"
+                >
+                  Annulla
+                </button>
+                <button
+                  onClick={() => {
+                    setId("");
+                    setDeleteModal(false)
+                    deletepost()
+                  }}
+                  className="bg-red-200 py-2 px-4 rounded-3xl hover:bg-red-600 hover:text-white"
+                >
+                  Elimina
+                </button>
+              </div>
+            </div>
+          </div>
+          }
+
       </div>
     </div>
   );
