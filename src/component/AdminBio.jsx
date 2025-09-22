@@ -1,18 +1,24 @@
 import { useState, useEffect } from "react";
+import {
+  EnvelopeIcon,
+  PencilIcon,
+  TrashIcon,
+  CheckIcon,
+} from "@heroicons/react/16/solid";
 
 const AdminBio = () => {
-  const [bios, setBios] = useState({});
+  const [bios, setBios] = useState([]);
   const [modal, showModal] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-  const[nome,setNome] = useState("");
-  const [email,setEmail] = useState("");
-  const [bio,setBio]= useState("");
-
+  const [nome, setNome] = useState("");
+  const [email, setEmail] = useState("");
+  const [bio, setBio] = useState("");
+  const [id, setID] = useState("");
 
   const handleBio = async () => {
     const token = localStorage.getItem("token");
     try {
-      const response = await fetch("http://localhost:8080/bio/1", {
+      const response = await fetch("http://localhost:8080/bio", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -23,9 +29,9 @@ const AdminBio = () => {
       }
       const data = await response.json();
       setBios(data);
-         setNome(data.nome);
-        setEmail(data.email);
-        setBio(data.bio);
+      setNome(data.nome);
+      setEmail(data.email);
+      setBio(data.bio);
       setIsLoading(false);
       console.log(data);
       console.log(bios);
@@ -34,52 +40,44 @@ const AdminBio = () => {
     }
   };
 
-
-  const addBio = async ()=>{
-     const token = localStorage.getItem("token");
-     try{
-      const response = await fetch("http://localhost:8080/bio",{
-         method:"POST",
-         body:JSON.stringify({nome,email,bio}),
-         headers: {
-         'Content-type':'application/json',
-          Authorization: `Bearer ${token}`,
-        },
-      })
-        if(!response.ok) throw new Error("Errore nel salvataggio")
-          const newBio = await response.json();
-        setBios(newBio);
-       
-     }catch(error){
-      console.error(error)
-     }
-  }
-
-
-
-  const updateBio = async () =>{
+  const addBio = async () => {
     const token = localStorage.getItem("token");
-    try{
-      const response = await fetch("http://localhost:8080/bio/1",{
-        method:"PUT",
-         body:JSON.stringify({nome,email,bio}),
-          headers: {
-         'Content-type':'application/json',
+    try {
+      const response = await fetch("http://localhost:8080/bio", {
+        method: "POST",
+        body: JSON.stringify({ nome, email, bio }),
+        headers: {
+          "Content-type": "application/json",
           Authorization: `Bearer ${token}`,
         },
-      })
-      if(!response.ok) throw new Error("errore nella modifica")
-        const bioUpdate = await response.json();
-      setBios(bioUpdate)
-    }catch(error){
-      console.error(error)
+      });
+      if (!response.ok) throw new Error("Errore nel salvataggio");
+      const newBio = await response.json();
+      setBios(newBio);
+    } catch (error) {
+      console.error(error);
     }
-  }
+  };
 
+  const updateBio = async () => {
+    const token = localStorage.getItem("token");
+    try {
+      const response = await fetch("http://localhost:8080/bio/" + id, {
+        method: "PUT",
+        body: JSON.stringify({ nome, email, bio }),
+        headers: {
+          "Content-type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      if (!response.ok) throw new Error("errore nella modifica");
+      const bioUpdate = await response.json();
+      setBios(bioUpdate);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
-
-
-  
   useEffect(() => {
     handleBio();
   }, []);
@@ -91,7 +89,7 @@ const AdminBio = () => {
           <div>
             <h1>Caricarento in corso...</h1>
           </div>
-        ) : Object.keys(bios).length === 0 ? (
+        ) : bios.length === 0 ? (
           <div className="flex mt-10  justify-center">
             <button
               onClick={() => showModal(true)}
@@ -101,99 +99,125 @@ const AdminBio = () => {
             </button>
           </div>
         ) : (
-          <div>
-            <h1 className="text-6xl">Bio</h1>
-            <div className="  mt-10   bg-violet-200 px-5 py-10 rounded-3xl">
-              <div className="flex gap-10 items-end">
-                <p className=" text-xl text-violet-900 w-12">Nome </p>
-
-                <p className="text-2xl">{bios.nome}</p>
-              </div>
-              <hr className="border-t-1 border-t-purple-400 mr-10 ml-20" />
-              <div className="flex gap-10 mt-6 items-end">
-                <p className=" text-xl text-violet-900 w-12">Email </p>
-
-                <p className="text-2xl">{bios.email}</p>
-              </div>
-              <hr className="border-t-1 border-t-purple-400 mr-10 ml-20" />
-              <div className="flex gap-10 mt-6 items-end">
-                <p className=" text-xl text-violet-900 w-12">Bio </p>
-
-                <p className="text-2xl mr-15 ml-5 md:mr-5"> {bios.bio}</p>
-              </div>
-              <hr className="border-t-1 border-t-purple-400 mr-10 ml-20" />
-              <div className="flex mt-6 md:justify-end justify-center md:mr-10">
-                <button
-                  onClick={() => showModal(true)
-                    
-                  }
-                  className="bg-purple-400 py-2 px-4 rounded-4xl hover:bg-purple-700 hover:text-white"
+          <div className={modal ? "hidden" : ""}>
+            <h1 className="text-6xl text-center font-bold">Bio</h1>{" "}
+            {bios.map((bio) => {
+              return (
+                <div
+                  key={bio.id}
+                  className="  mt-10   bg-violet-200 px-2 py-3 mr-6 rounded-3xl"
                 >
-                  Modifica
-                </button>
-              </div>
-            </div>
+                  <div className="bg-violet-50 px-5 py-6 rounded-2xl">
+                    <p className="text-4xl text-center font-bold text-violet-800 mb-4">
+                      {bio.nome}
+                    </p>
+                    <p className="text-2xl md:ml-5 md:mr-5 text-center md:px-6"> {bio.bio}</p>
+
+                    <div className="flex gap-2 mt-8 justify-end">
+                      <EnvelopeIcon className="size-6 text-violet-800"></EnvelopeIcon>
+                      <p className="text-xl text-violet-800 font-bold">
+                        {bio.email}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex mt-3 justify-end">
+                    <button
+                      onClick={() => {
+                        setID(bio.id);
+                        setNome(bio.nome)
+                        setBio(bio.bio)
+                        setEmail(bio.email)
+                        showModal(true);
+                      }}
+                      className="bg-violet-300  p-2 rounded-full hover:bg-amber-400"
+                    >
+                      <PencilIcon className="size-7" />
+                    </button>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         )}
       </div>
 
       {modal && (
-        <div className="  bg-gray-50 absolute top-0 md:mt-20 mt-15 md:w-6/12 w-12/12 h-8/12">
-          <div className="flex justify-end mr-4">
-            <button
-              className="bg-gray-200 font-bold text-gray-600 px-3 py-1 rounded-full hover:bg-red-500 hover:text-white"
-              onClick={() => showModal(false)}
-            >
-              X
-            </button>
-          </div>
-          <div className="">
-           
-            <form onSubmit={(e)=>
-              {e.preventDefault;
-                  Object.keys(bios).length === 0 ?  addBio() : updateBio();
-                
-              }
-            }>
-                <p className="text-4xl text-gray-800 text-center font-semibold">
-              Modifica
+        <div className="p-5">
+          <div className="flex flex-row ">
+            <p className="text-5xl font-bold flex-1 text-center ">
+              Modifica Bio
             </p>
-              <div className="flex mt-6 gap-10 justify-center">
-               
-                <label htmlFor="nome">Nome</label>
-                <input
-                  id="nome"
-                  type="text"
-                  className=" border-b border-b-purple-400 focus:outline-hidden focus:border-b-2 focus:border-purple-400"
-                  value={nome}
-                  onChange={(e)=>setNome(e.target.value)}
-                />
+          </div>
+          <div className="mt-8">
+            <form
+              onSubmit={(e) => {
+                e.preventDefault;
+                bios.length === 0 ? addBio() : updateBio();
+              }}
+              className="bg-violet-200 rounded-3xl p-3 "
+            >
+              <div className="bg-violet-50 rounded-2xl py-8 ">
+                <div className="px-2 md:px-10">
+                  <div className="flex gap-10">
+                    <label className="text-2xl " htmlFor="nome">
+                      Nome
+                    </label>
+                    <input
+                      placeholder="Mario Rossi"
+                      id="nome"
+                      type="text"
+                      className="text-xl bg-violet-300 py-2 pl-6 rounded-3xl w-full  focus:outline-hidden focus:inset-shadow-sm focus:inset-shadow-violet-600"
+                      value={nome}
+                      onChange={(e) => setNome(e.target.value)}
+                    />
+                  </div>
+                  <div className="flex mt-6 gap-10 ">
+                    <label className="text-2xl" htmlFor="email">
+                      Email
+                    </label>
+                    <input
+                      placeholder="pippo@gmail.com"
+                      id="email"
+                      type="email"
+                      className="  text-xl bg-violet-300 py-2 pl-6 rounded-3xl w-full  focus:outline-hidden focus:inset-shadow-sm focus:inset-shadow-violet-600"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                    />
+                  </div>
+                  <div className="flex mt-8 gap-14">
+                    <label className="text-2xl" htmlFor="bio">
+                      Bio
+                    </label>
+                    <textarea
+                      name="bio"
+                      id="bio"
+                      placeholder="Tra colori, forme e melodie, esploro il confine tra realtà e immaginazione. Le mie opere nascono da curiosità, notti insonni e caffè troppo forti, cercando di catturare ciò che le parole non riescono a descrivere"
+                      className=" text-xl  bg-violet-300 py-2 px-6 rounded-3xl w-full focus:outline-hidden focus:inset-shadow-sm focus:inset-shadow-violet-600  "
+                      value={bio}
+                      onChange={(e) => setBio(e.target.value)}
+                    ></textarea>
+                  </div>
+                </div>
               </div>
-              <div className="flex mt-6 gap-10 justify-center">
-                <label htmlFor="email">Email</label>
-                <input
-                  id="email"
-                  type="email"
-                  className=" border-b border-b-purple-400 focus:outline-hidden focus:border-b-2 focus:border-purple-400"
-                  value={email}
-                  onChange={(e)=>setEmail(e.target.value)}
-                />
-              </div>
-              <div className="flex mt-8 justify-center gap-14">
-                <label htmlFor="bio">Bio</label>
-                <textarea
-                  name="bio"
-                  id="bio"
-                  cols={24}
-                  className="border rounded-sm border-purple-400  focus:outline-2 focus:outline-purple-400  "
-                  value={bio}
-                  onChange={(e)=>setBio(e.target.value)}
-                ></textarea>
-              </div>
-              <div className="flex justify-center-safe mt-20">
-                <button 
-                type="submit" className="bg-purple-400 px-4 py-2 rounded-3xl text-white hover:bg-lime-400">
-                  Salva Modifiche{" "}
+
+              <div className="flex justify-end gap-2 mt-4">
+                <button
+                  onClick={() => {
+                    setID("")
+                    setNome("")
+                    setBio("")
+                    setEmail("")
+                    showModal(false)}}
+                  className="bg-violet-300 p-2 rounded-full hover:bg-red-400"
+                >
+                  <TrashIcon className="size-7 "></TrashIcon>
+                </button>
+                <button
+                  type="submit"
+                  className="bg-violet-300 p-2 rounded-full  hover:bg-lime-400"
+                >
+                  <CheckIcon className="size-7"></CheckIcon>
                 </button>
               </div>
             </form>

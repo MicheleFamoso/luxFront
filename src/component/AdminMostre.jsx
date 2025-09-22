@@ -1,4 +1,11 @@
 import { useState, useEffect } from "react";
+import {
+  TrashIcon,
+  PencilIcon,
+  XCircleIcon,
+  CalendarIcon,
+  MapPinIcon
+} from "@heroicons/react/16/solid";
 
 const AdminMostre = () => {
   const [mostre, setMostre] = useState([]);
@@ -126,17 +133,28 @@ const AdminMostre = () => {
                 {mostre.map((mostra) => {
                   return (
                     <div className="mb-5 mr-6 " key={mostra.id}>
-                      <div className="bg-violet-200 py-5 px-4 rounded-3xl">
+                      <div className="bg-violet-200 py-3 px-2 rounded-3xl">
                         <div className="bg-violet-50 px-5 py-6 rounded-2xl">
                            <div className="flex justify-between">
                           <h1 className="font-bold text-2xl text-violet-900">
                             {mostra.titolo}
                           </h1>
-                          <p className="text-violet-800">{mostra.data}</p>
+                         
+                        
                         </div>
-                        <p className="text-violet-800">{mostra.luogo}</p>
+                       
+                       
                         <p className="mt-2 text-xl">{mostra.descrizione}</p>
+                         <div className="flex justify-between mt-2">
+                           <div className="flex gap-2">
+                          <MapPinIcon className="size-6 text-violet-800" ></MapPinIcon>
+                           <p className="text-violet-800 font-bold">{mostra.luogo}</p>
                         </div>
+                        <div className="flex gap-2">
+                              <CalendarIcon className="size-6 text-violet-800"></CalendarIcon>
+                          <p className="text-violet-800 font-bold">{mostra.data}</p>
+                          </div>
+                        </div></div>
                        
                         <div className="flex justify-end gap-3 mt-6">
                           <button
@@ -148,9 +166,9 @@ const AdminMostre = () => {
                               setDescrizione(mostra.descrizione);
                               setShowModal(true);
                             }}
-                            className="bg-violet-300 px-3 py-1 rounded-2xl hover:bg-amber-400"
-                          >
-                            Modifica
+                             className="bg-violet-300  p-2 rounded-full hover:bg-amber-400"
+                  >
+                    <PencilIcon className="size-7" />
                           </button>
                           <button
                             onClick={() => {
@@ -158,9 +176,9 @@ const AdminMostre = () => {
                               setTitoloMostra(mostra.titolo);
                               setShowModalDelete(true);
                             }}
-                            className="bg-violet-300 px-3 py-1 rounded-2xl hover:bg-red-400"
-                          >
-                            Elimina
+                             className="bg-violet-300 p-2 rounded-full hover:bg-red-400"
+                  >
+                    <TrashIcon className="size-7 "></TrashIcon>
                           </button>
                         </div>
                       </div>
@@ -185,9 +203,9 @@ const AdminMostre = () => {
                   setDescrizione("");
                   setShowModal(false);
                 }}
-                className="bg-violet-200 hover:bg-red-500 px-4 pt-2 pb-1 rounded-full"
+                
               >
-                X
+                  <XCircleIcon className="size-10 text-violet-300 hover:text-red-700"></XCircleIcon>
               </button>
             </div>
             <form
