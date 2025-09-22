@@ -127,7 +127,8 @@ const AdminMostre = () => {
                   return (
                     <div className="mb-5 mr-6 " key={mostra.id}>
                       <div className="bg-violet-200 py-5 px-4 rounded-3xl">
-                        <div className="flex justify-between">
+                        <div className="bg-violet-50 px-5 py-6 rounded-2xl">
+                           <div className="flex justify-between">
                           <h1 className="font-bold text-2xl text-violet-900">
                             {mostra.titolo}
                           </h1>
@@ -135,6 +136,8 @@ const AdminMostre = () => {
                         </div>
                         <p className="text-violet-800">{mostra.luogo}</p>
                         <p className="mt-2 text-xl">{mostra.descrizione}</p>
+                        </div>
+                       
                         <div className="flex justify-end gap-3 mt-6">
                           <button
                             onClick={() => {
