@@ -1,94 +1,71 @@
 import { useState, useEffect } from "react";
 import {
-  TrashIcon,
-  PencilIcon,
-  XCircleIcon,
-  CalendarIcon,
-  MapPinIcon
+    XCircleIcon, CheckIcon
+  
 } from "@heroicons/react/16/solid";
+import InfoItem from "./InfoItem";
 
 const AdminMostre = () => {
   const [mostre, setMostre] = useState([]);
-  const token = localStorage.getItem("token");
-  const [isLogin, setisLogin] = useState(true);
+  const [isLogin, setIsLogin] = useState(true);
+  const [selectedItem, setSelectedItem] = useState(null);
   const [showModal, setShowModal] = useState(false);
-  const [titolo, setTitolo] = useState("");
-  const [luogo, setLuogo] = useState("");
-  const [data, setData] = useState("");
-  const [descrizione, setDescrizione] = useState("");
-  const [id, setId] = useState("");
   const [showModalDelete, setShowModalDelete] = useState(false);
-  const [titoloMostra, setTitoloMostra] = useState("");
 
+  const token = localStorage.getItem("token");
+
+  // Fetch mostre
   const handleMostre = async () => {
     try {
-      const response = await fetch("http://localhost:8080/mostre", {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
+      const res = await fetch("http://localhost:8080/mostre", {
+        headers: { Authorization: `Bearer ${token}` },
       });
-      if (!response.ok) {
-        throw new Error("errore nel caricamento delle mostre");
-      }
-      const data = await response.json();
+      if (!res.ok) throw new Error("Errore nel caricamento delle mostre");
+      const data = await res.json();
       setMostre(data);
-      setisLogin(false);
-    } catch (error) {
-      console.log(error);
+      setIsLogin(false);
+    } catch (err) {
+      console.log(err);
     }
   };
-  console.log(mostre);
 
-  const handleMostra = async () => {
+  // Create / Update
+  const handleMostraSave = async () => {
     try {
-      const response = await fetch("http://localhost:8080/mostre", {
-        method: "POST",
-        body: JSON.stringify({ titolo, luogo, data, descrizione }),
+      const method = selectedItem.id ? "PUT" : "POST";
+      const url = selectedItem.id
+        ? `http://localhost:8080/mostre/${selectedItem.id}`
+        : "http://localhost:8080/mostre";
+      const res = await fetch(url, {
+        method,
         headers: {
-          "Content-type": "application/json",
+          "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
         },
+        body: JSON.stringify(selectedItem),
       });
-      if (!response.ok) {
-        throw new Error("errore nell'aggiunta della mostra");
-      }
+      if (!res.ok) throw new Error("Errore nel salvataggio della mostra");
+      setSelectedItem(null);
+      setShowModal(false);
       handleMostre();
-    } catch (error) {
-      console.log(error);
+    } catch (err) {
+      console.log(err);
     }
   };
 
+  // Delete
   const handleMostraDelete = async () => {
     try {
-      const response = await fetch("http://localhost:8080/mostre/" + id, {
+      const res = await fetch(`http://localhost:8080/mostre/${selectedItem.id}`, {
         method: "DELETE",
         headers: {
-          "Content-type": "application/json",
+          "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
         },
       });
-      if (!response.ok) {
-        throw new Error("Errore nell'eliminazione della mostra");
-      }
-      handleMostre();
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  const handleMostraUpdate = async () => {
-    try {
-      const response = await fetch("http://localhost:8080/mostre/" + id, {
-        method: "PUT",
-        body: JSON.stringify({ titolo, luogo, data, descrizione }),
-        headers: {
-          "Content-type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-      });
-      if (!response.ok) {
-        throw new Error("errore nella modifica della mostra");
-      }
+      if (!res.ok) throw new Error("Errore nell'eliminazione della mostra");
+      setSelectedItem(null);
+      setShowModalDelete(false);
       handleMostre();
     } catch (err) {
       console.log(err);
@@ -100,231 +77,174 @@ const AdminMostre = () => {
   }, []);
 
   return (
-    <div className=" mt-2 md:mt-6 md:w-6/12 md:m-auto static">
-      <div className="ml-6">
-        {isLogin ? (
-          <p>Caricamento in corso...</p>
-        ) : (
-          <div>
-            <div
-              className={showModal ? "hidden " : "flex justify-between mr-6 "}
+    <div className="mt-2 md:mt-6 md:w-8/12 md:m-auto static">
+      {isLogin ? (
+        <p>Caricamento in corso...</p>
+      ) : (
+        <div>
+          {/* Header */}
+          <div className={showModal ? "hidden" : "flex  mr-6"}>
+            <h1 className="text-6xl flex-1 font-bold text-center">Mostre</h1>
+            <button
+              onClick={() => {
+                setSelectedItem({ titolo: "", luogo: "", data: "", descrizione: "" });
+                setShowModal(true);
+              }}
+              className="text-5xl bg-violet-300 rounded-2xl px-4 pt-1 flex hover:bg-lime-500"
             >
-              <h1 className="text-6xl">Mostre</h1>
-              <button
-                onClick={() => setShowModal(true)}
-                className="text-5xl  bg-violet-300 rounded-2xl px-4 pt-1 flex hover:bg-lime-500 "
-              >
-                +
-              </button>
-            </div>
-            {mostre.length === 0 ? (
-              <div className={showModal ? "hidden" : "mt-5 ml-3 "}>
-                <p>
-                  Premi il tasto{" "}
-                  <span className=" font-bold bg-violet-300 rounded-md text-xl  px-1">
-                    {" "}
-                    +
-                  </span>{" "}
-                  per aggiungere una mostra.
-                </p>
-              </div>
-            ) : (
-              <div className={showModal ? "hidden" : "mt-10 grid grid-cols-1"}>
-                {mostre.map((mostra) => {
-                  return (
-                    <div className="mb-5 mr-6 " key={mostra.id}>
-                      <div className="bg-violet-200 py-3 px-2 rounded-3xl">
-                        <div className="bg-violet-50 px-5 py-6 rounded-2xl">
-                           <div className="flex justify-between">
-                          <h1 className="font-bold text-2xl text-violet-900">
-                            {mostra.titolo}
-                          </h1>
-                         
-                        
-                        </div>
-                       
-                       
-                        <p className="mt-2 text-xl">{mostra.descrizione}</p>
-                         <div className="flex justify-between mt-2">
-                           <div className="flex gap-2">
-                          <MapPinIcon className="size-6 text-violet-800" ></MapPinIcon>
-                           <p className="text-violet-800 font-bold">{mostra.luogo}</p>
-                        </div>
-                        <div className="flex gap-2">
-                              <CalendarIcon className="size-6 text-violet-800"></CalendarIcon>
-                          <p className="text-violet-800 font-bold">{mostra.data}</p>
-                          </div>
-                        </div></div>
-                       
-                        <div className="flex justify-end gap-3 mt-6">
-                          <button
-                            onClick={() => {
-                              setId(mostra.id);
-                              setTitolo(mostra.titolo);
-                              setLuogo(mostra.luogo);
-                              setData(mostra.data);
-                              setDescrizione(mostra.descrizione);
-                              setShowModal(true);
-                            }}
-                             className="bg-violet-300  p-2 rounded-full hover:bg-amber-400"
-                  >
-                    <PencilIcon className="size-7" />
-                          </button>
-                          <button
-                            onClick={() => {
-                              setId(mostra.id);
-                              setTitoloMostra(mostra.titolo);
-                              setShowModalDelete(true);
-                            }}
-                             className="bg-violet-300 p-2 rounded-full hover:bg-red-400"
-                  >
-                    <TrashIcon className="size-7 "></TrashIcon>
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            )}
+              +
+            </button>
           </div>
-        )}
 
-        {showModal && (
-          <div className="p-5">
-            <div className="flex justify-between">
-              <p className="font-bold text-5xl ">Mostra</p>
+          {/* Lista mostre */}
+          {mostre.length === 0 ? (
+            <div className={showModal ? "hidden" : "mt-5 ml-3"}>
+              <p>
+                Premi il tasto{" "}
+                <span className="font-bold bg-violet-300 rounded-md text-xl px-1">+</span>{" "}
+                per aggiungere una mostra.
+              </p>
+            </div>
+          ) : (
+            <div className={showModal ? "hidden" : "mt-10 grid grid-cols-1 gap-4"}>
+              {mostre.map((mostra) => (
+                <InfoItem
+                  key={mostra.id}
+                  mostra={mostra}
+                  setSelectedItem={setSelectedItem}
+                  setShowModal={setShowModal}
+                  setShowModalDelete={setShowModalDelete}
+                />
+              ))}
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* Modal Aggiungi / Modifica */}
+      {showModal && selectedItem && (
+        <div className="p-5"> 
+      
+        
+            <p className="font-bold  text-center text-5xl text-violet-900 ">Aggiungi mostra</p>
+          
+          
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              handleMostraSave();
+            }}
+            className="mt-16 md:bg-violet-50 md:shadow-md md:rounded-3xl md:py-5 md:px-10"
+          >
+            <div className="flex md:gap-10 gap-2  flex-col md:flex-row ">
+              <label htmlFor="titolo" className="text-2xl text-violet-800 ml-2 md:ml-0 w-40">
+                Titolo
+              </label>
+              <input
+                id="titolo"
+                className="text-xl  bg-violet-200 py-2 pl-6 shadow-md rounded-2xl w-full  focus:outline-hidden focus:inset-shadow-sm focus:inset-shadow-violet-400"
+                value={selectedItem.titolo}
+                onChange={(e) =>
+                  setSelectedItem({ ...selectedItem, titolo: e.target.value })
+                }
+              />
+            </div>
+
+            <div className="flex md:gap-10 gap-2  flex-col md:flex-row mt-6 ">
+              <label htmlFor="luogo" className="text-2xl text-violet-800 ml-2 md:ml-0  w-40">
+                Luogo
+              </label>
+              <input
+                id="luogo"
+                className="text-xl bg-violet-200 py-2 pl-6 shadow-md rounded-2xl w-full  focus:outline-hidden focus:inset-shadow-sm focus:inset-shadow-violet-400"
+                
+                value={selectedItem.luogo}
+                onChange={(e) =>
+                  setSelectedItem({ ...selectedItem, luogo: e.target.value })
+                }
+              />
+            </div>
+
+            <div className="flex md:gap-10 gap-2  flex-col md:flex-row mt-6 ">
+              <label htmlFor="data" className="text-2xl w-40 text-violet-800 ml-2 md:ml-0 ">
+                Data
+              </label>
+              <input
+                id="data"
+                type="date"
+              
+                className="text-xl bg-violet-200 py-2 px-6 shadow-md rounded-2xl w-full  focus:outline-hidden focus:inset-shadow-sm focus:inset-shadow-violet-400"
+
+                value={selectedItem.data}
+                onChange={(e) =>
+                  setSelectedItem({ ...selectedItem, data: e.target.value })
+                }
+              />
+            </div>
+
+            <div className="flex md:gap-10 gap-2  flex-col md:flex-row  mt-6">
+              <label htmlFor="descrizione" className="text-2xl text-violet-800 ml-2 md:ml-0 w-40">
+                Descrizione
+              </label>
+              <textarea
+                id="descrizione"
+               
+                className="text-xl bg-violet-200 py-2 pl-6 shadow-md rounded-2xl w-full  focus:outline-hidden focus:inset-shadow-sm focus:inset-shadow-violet-400"
+
+                value={selectedItem.descrizione}
+                onChange={(e) =>
+                  setSelectedItem({ ...selectedItem, descrizione: e.target.value })
+                }
+              />
+            </div>
+
+            <div className="flex justify-end mt-12 gap-2">
+                 <button onClick={() => setShowModal(false)}
+                  className="bg-violet-200 border-1 border-violet-300 px-4 py-2 rounded-3xl hover:bg-red-400">
+              Annulla
+            </button>
               <button
-                onClick={() => {
-                  setId("");
-                  setTitolo("");
-                  setLuogo("");
-                  setData("");
-                  setDescrizione("");
-                  setShowModal(false);
-                }}
+                type="submit"
+                      className="bg-violet-200 border-1 border-violet-300 p-2 rounded-full  hover:bg-lime-400"
+
                 
               >
-                  <XCircleIcon className="size-10 text-violet-300 hover:text-red-700"></XCircleIcon>
+                <CheckIcon className="size-7"></CheckIcon>
               </button>
             </div>
-            <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                if (id !== "") {
-                  handleMostraUpdate();
-                } else {
-                  handleMostra();
-                }
-                setId("");
-                setTitolo("");
-                setLuogo("");
-                setData("");
-                setDescrizione("");
-                setShowModal(false);
-              }}
-              className=" mt-16 "
-            >
-             
-                     <div className="flex mt-6   gap-10 md:justify-center ">
-                <label htmlFor="titolo" className="w-22  ">
-                  Titolo{" "}
-                </label>
-                <input
-                  className=" md:w-100 border-b border-b-purple-400 focus:outline-hidden focus:border-b-2 focus:border-purple-400"
-                  type="text"
-                  id="titolo"
-                  value={titolo}
-                  onChange={(e) => setTitolo(e.target.value)}
-                />
-              </div>
-              <div className="flex mt-6 gap-10 md:justify-center ">
-                <label htmlFor="luogo" className="w-22">
-                  Luogo
-                </label>
-                <input
-                  className=" md:w-100 border-b border-b-purple-400 focus:outline-hidden focus:border-b-2 focus:border-purple-400"
-                  type="text"
-                  id="luogo"
-                  value={luogo}
-                  onChange={(e) => setLuogo(e.target.value)}
-                />
-              </div>
-              <div className="flex mt-6 gap-10 md:justify-center ">
-                <label htmlFor="data" className="w-22">
-                  Data
-                </label>
-                <input
-                  className=" md:w-100 border-b border-b-purple-400 focus:outline-hidden focus:border-b-2 focus:border-purple-400"
-                  type="date"
-                  id="data"
-                  value={data}
-                  onChange={(e) => setData(e.target.value)}
-                />
-              </div>
-              <div className="flex mt-6 gap-10 md:justify-center ">
-                <label htmlFor="descrizione" className="w-22">
-                  Descrizione
-                </label>
+          </form>
+        </div>
+      )}
 
-                <textarea
-                  className="md:w-100 border rounded-sm border-purple-400  focus:outline-2 focus:outline-purple-400  "
-                  name="descrizione"
-                  id="descrizione"
-                  value={descrizione}
-                  onChange={(e) => setDescrizione(e.target.value)}
-                ></textarea>
-              </div>
-              <div className="flex justify-center mt-10 ">
-                <button
-                  type="submit"
-                  className="bg-purple-400 px-4 py-2 rounded-3xl text-white hover:bg-lime-400"
-                >
-                  Salva
-                </button>
-              </div>
-              
-         
-            </form>
-          </div>
-        )}
-        {showModalDelete && (
-          <div className="fixed inset-0 bg-black/90 bg-opacity-50 flex justify-center items-center z-50">
-            <div className="bg-violet-50 px-8 py-6 rounded-3xl">
-              <h2 className="text-xl font-bold mb-4">Conferma eliminazione</h2>
-              <p className="mb-6">
-                Sei sicuro di voler eliminare{" "}
-                <span className="font-bold text-violet-950">
-                  {titoloMostra}
-                </span>{" "}
-                ?
-              </p>
-              <div className="flex justify-around">
-                <button
-                  onClick={() => {
-                    setId("");
-                    setTitoloMostra("");
-                    setShowModalDelete(false);
-                  }}
-                  className="bg-violet-200 py-2 px-4 rounded-3xl hover:bg-violet-600 hover:text-white"
-                >
-                  Annulla
-                </button>
-                <button
-                  onClick={() => {
-                    handleMostraDelete();
-                    setShowModalDelete(false);
-                  }}
-                  className="bg-red-200 py-2 px-4 rounded-3xl hover:bg-red-600 hover:text-white"
-                >
-                  Elimina
-                </button>
-              </div>
+      {/* Modal Delete */}
+      {showModalDelete && selectedItem && (
+        <div className="fixed inset-0 bg-black/90 flex justify-center items-center z-50">
+          <div className="bg-violet-50 px-8 py-6 rounded-3xl">
+            <h2 className="text-xl font-bold mb-4">Conferma eliminazione</h2>
+            <p className="mb-6">
+              Sei sicuro di voler eliminare
+              <span className="font-bold text-violet-950">{selectedItem.titolo}</span>?
+            </p>
+            <div className="flex justify-around">
+              <button
+                onClick={() => setShowModalDelete(false)}
+                className="bg-violet-200 py-2 px-4 rounded-3xl hover:bg-violet-600 hover:text-white"
+              >
+                Annulla
+              </button>
+              <button
+                onClick={handleMostraDelete}
+                className="bg-red-200 py-2 px-4 rounded-3xl hover:bg-red-600 hover:text-white"
+              >
+                Elimina
+              </button>
             </div>
           </div>
-        )}
-      </div>
+        </div>
+      )}
     </div>
   );
 };
+
 export default AdminMostre;
+

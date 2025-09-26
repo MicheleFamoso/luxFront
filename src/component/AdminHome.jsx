@@ -120,7 +120,7 @@ const AdminHome = () => {
   }, []);
 
   return (
-    <div className=" mt-2 md:mt-6 md:w-6/12 md:m-auto static">
+    <div className=" mt-2 md:mt-6 md:w-8/12 md:m-auto static">
       <div className="ml-6">
         <div className={showModal ? "hidden " : ""}>
           <div className="flex justify-between mr-6 ">
