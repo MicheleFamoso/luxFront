@@ -74,6 +74,7 @@ const AdminMostre = () => {
 
   useEffect(() => {
     handleMostre();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -126,13 +127,14 @@ const AdminMostre = () => {
         <div className="p-5"> 
       
         
-            <p className="font-bold  text-center text-5xl text-violet-900 ">Aggiungi mostra</p>
+            <p className="font-bold  text-center text-5xl text-violet-900 ">{selectedItem.titolo === "" ? 
+              ("Aggiungi mostra"):("Modifica mostra")}</p>
           
           
           <form
-            onSubmit={(e) => {
+            onSubmit={(e) => {  
               e.preventDefault();
-              handleMostraSave();
+              handleMostraSave();    
             }}
             className="mt-16 md:bg-violet-50 md:shadow-md md:rounded-3xl md:py-5 md:px-10"
           >

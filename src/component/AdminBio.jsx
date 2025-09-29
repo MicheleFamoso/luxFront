@@ -80,6 +80,7 @@ const AdminBio = () => {
 
   useEffect(() => {
     handleBio();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -150,7 +151,7 @@ const AdminBio = () => {
       {modal && (
         <div className="p-5">
           <div className="flex flex-row ">
-            <p className="text-5xl font-bold flex-1 text-center ">
+            <p className="text-5xl font-bold text-violet-900 flex-1 text-center ">
               Modifica Bio
             </p>
           </div>
