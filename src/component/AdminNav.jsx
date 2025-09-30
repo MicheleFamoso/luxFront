@@ -4,8 +4,8 @@ const AdminNav = () => {
   const navigate = useNavigate();
   const location = useLocation();
   return (
-    <nav className="bg-purple-400  py-2 flex justify-around md:justify-start fixed top-0 right-0 left-0   ">
-        <div className="md:w-6/12 md:m-auto">
+    <nav className="bg-violet-300  py-3 flex justify-around md:justify-center  fixed top-0 right-0 left-0   ">
+        <div className="">
                <button
         onClick={() => {
           navigate("/admin");

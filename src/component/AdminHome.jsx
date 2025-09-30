@@ -112,8 +112,8 @@ const AdminHome = () => {
     <div className=" mt-2 md:mt-6 md:w-8/12 md:m-auto static">
       <div className="">
         <div className={showModal ? "hidden " : ""}>
-          <div className="flex justify-between mr-6 ">
-            <h1 className="text-6xl">Post</h1>
+          <div className="flex  mr-6 ">
+            <h1 className="text-6xl  flex-1 font-bold text-center">Post</h1>
             <button
               onClick={() => {
                 setSelectedItem({
@@ -134,7 +134,7 @@ const AdminHome = () => {
           </div>{" "}
           {posts.map((post) => {
             return (
-              <div key={post.id} className="my-8">
+              <div key={post.id} className="mt-6 grid grid-cols-1 gap-4">
                 <AdminPostItem
                   post={post}
                   setSelectedItem={setSelectedItem}
