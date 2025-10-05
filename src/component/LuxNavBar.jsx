@@ -4,7 +4,7 @@ const LuxNavBar =()=>{
       const navigate = useNavigate();
  
     return(
-        <div className="text-center">
+        <div className="text-center mb-6">
                 <button
                 onClick={()=> navigate("/")
 
