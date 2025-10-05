@@ -1,6 +1,6 @@
 const IntrLux =()=>{
     return(
-        <div className="bg-hero bg-cover bg-center md:h-90 h-80 rounded-4xl shadow-xl p-4 mx-6 ">
+        <div className="bg-hero bg-cover bg-center md:h-90 h-80 rounded-4xl shadow-xl p-4 xl:mx-54 mx-8 ">
           
             <div className="flex justify-center items-center mt-4">
                 
@@ -10,7 +10,7 @@ const IntrLux =()=>{
             </div>
             <div className="text-center  mt-8 font-kosugi font-extrabold md:text-3xl text-2xl">
                 <p className="text-gray-medium">VISUAL ARTIST</p>
-            <p className="text-gray-bold ">NAPOLI</p>  
+            <p className="text-gray-bold mt-2 ">NAPOLI</p>  
             </div>
           
 

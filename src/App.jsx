@@ -9,6 +9,7 @@ import AdminHome from "./component/AdminHome";
 import AdminLogin from "./component/AdminLogin";
 import AdminMostre from "./component/AdminMostre";
 import AdminBio from "./component/AdminBio";
+import AboutLux from "./component/AboutLux";
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
       <Routes>
         <Route path="/" element={<PublicLayout/>}>
          <Route index element ={<PublicHome/>}/>
+         <Route path="/about" element={<AboutLux/>}/>
         </Route>
 
         <Route path="/login" element={<AdminLogin/>}/>

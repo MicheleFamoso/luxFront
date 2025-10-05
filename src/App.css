@@ -18,6 +18,6 @@
 
 @layer utilities {
   .bg-hero {
-    background-image: url('/public/struttura-di-carta.jpg');
+    background-image: url('/public/paper.jpg');
   }
 }
