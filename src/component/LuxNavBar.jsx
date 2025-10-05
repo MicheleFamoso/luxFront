@@ -4,12 +4,12 @@ const LuxNavBar =()=>{
       const navigate = useNavigate();
  
     return(
-        <div className="flex justify-center ">
+        <div className="text-center">
                 <button
                 onClick={()=> navigate("/")
 
                 }
-                 className="cursor-pointer  py-4 font-jacquard text-9xl mt-6 text-gray-extraBold"> &nbsp; Luciano Famoso &nbsp; </button>
+                 className="cursor-pointer font-jacquard text-5xl md:text-9xl mt-8 text-gray-extraBold"> &nbsp; Luciano Famoso &nbsp; </button>
         </div>
     )
 }

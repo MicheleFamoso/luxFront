@@ -1,8 +1,11 @@
 const PublicHome =()=>{
     return(
-        <h1>
-            ciao
-        </h1>
+        <div className=" mt-2 md:mt-6 md:w-6/12 md:m-auto static">
+             <div>
+            <p>lorem</p>
+        </div> 
+        </div>
+      
     )
 
 }
