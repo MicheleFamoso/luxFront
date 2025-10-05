@@ -1,1 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Jacquard+12+Charted&display=swap');
 @import "tailwindcss";
+
+
+@theme {
+    --color-panna: #FFFBF0;
+    --color-panna-medium:#f2ece0;
+    --color-gray-light:#BEB7AD;
+    --color-gray-medium:#8E877E;
+    --color-gray-bold:#7f7f7c;
+    --color-gray-extraBold:#4C4B48;
+    --color-gray-mediumBold:#a2857c;
+    --font-jacquard: "Jacquard 12 Charted",sans-serif;
+
+}

@@ -107,7 +107,7 @@ const AdminBio = () => {
                 <div key={bio.id} className="  mt-10 mr-6 ">
                   <div className="md:bg-violet-50 md:shadow-md p-6 rounded-3xl ">
                     <div className="md:flex">
-                      <div className="basis-2/3">
+                      <div className="flex-1">
                         <p className="text-4xl font-bold text-violet-900 mb-4">
                           {bio.nome}
                         </p>
@@ -119,10 +119,10 @@ const AdminBio = () => {
                         </div>
                       </div>
 
-                      <div>
-                        <p className="text-xl font-black text-violet-800 hidden md:flex">Biografia:</p>
+                      <div >
+                        <p className="text-xl font-black text-violet-800 hidden md:flex ">Biografia:</p>
                         <p className="text-xl mt-6 md:mt-1"> {bio.bio}</p>
-                            <div className=" mt-6 flex  justify-end">
+                            <div className=" mt-10 flex  justify-end">
                       <button
                         onClick={() => {
                           setID(bio.id);
