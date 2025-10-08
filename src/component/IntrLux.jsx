@@ -1,21 +1,27 @@
-const IntrLux =()=>{
-    return(
-        <div className="bg-hero bg-cover bg-center md:h-90 h-80 rounded-4xl shadow-xl p-4 xl:mx-54 mx-8 ">
-          
-            <div className="flex justify-center items-center mt-4">
-                
-                <img
-                className="md:w-40 w-30 object-cover rounded-full shadow-2xl"
-                 src="/public/img-profile.jpg" alt="img-profile" />
-            </div>
-            <div className="text-center  mt-8 font-kosugi font-extrabold md:text-3xl text-2xl">
-                <p className="text-gray-medium">VISUAL ARTIST</p>
-            <p className="text-gray-bold mt-2 ">NAPOLI</p>  
-            </div>
-          
+import { useLocation } from "react-router-dom";
 
-        </div>
-    )
-}
+const IntrLux = () => {
+ const location = useLocation();
+  const isHome = location.pathname === "/"
 
-export default IntrLux
+  return (
+    <div className="flex justify-center">
+       <div className={`bg-hero bg-cover bg-center  rounded-4xl shadow-xl transition-all duration-500 ease-in-out  ${isHome?"md:h-90 h-70 w-80 md:w-100 pt-10":"md:h-50 h-40 w-80 pt-4" } `}>
+      <div className="flex justify-center  md:items-center ">
+        <img
+          className={` object-cover rounded-full shadow-2xl${isHome? "md:w-40 w-24":"md:20 w-15"}`} 
+          src="/public/img-profile.jpg"
+          alt="img-profile"
+        />
+      </div>
+      <div className={`text-center   font-kosugi font-extrabold ${isHome?"md:text-4xl text-2xl mt-13":"md:text-2xl mt-4"} `} >
+        <p className="text-gray-medium">VISUAL ARTIST</p>
+        <p className="text-gray-bold mt-2 ">NAPOLI</p>
+      </div>
+    </div>
+    </div>
+   
+  );
+};
+
+export default IntrLux;
