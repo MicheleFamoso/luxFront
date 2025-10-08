@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import IntrLux from "./IntrLux";
 const AboutLux = () => {
   const [bios, setBios] = useState([]);
 
@@ -23,8 +24,13 @@ const AboutLux = () => {
   return (
     <div className=" mt-2 md:mt-6 md:w-6/12 md:m-auto static">
       <div>
+        <div  >
+            < IntrLux />
+        </div>
+      
         {bios.map((bio) => (
-          <div key={bio.id} className="grid grid-cols-3 mt-8 ">
+
+          <div key={bio.id} className="grid grid-cols-2 mt-8 ">
             <div>
               {" "}
               <h3 className="font-kosugi font-extrabold  text-3xl  text-gray-bold">
@@ -38,13 +44,7 @@ const AboutLux = () => {
             <div className="ml-30">
               <h3 className="font-kosugi font-extrabold  text-2xl  text-gray-extraBold">SERVICES</h3>
             </div>
-            <div className="ml-30">
-                <h3 className="font-kosugi font-extrabold  text-2xl  text-gray-extraBold">
-                   AWARDS/PRESS 
-                </h3>
-
-                
-                </div>
+           
           </div>
         ))}
       </div>
