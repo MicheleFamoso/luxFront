@@ -1,15 +1,16 @@
 import "./App.css";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
-import PublicHome from "./component/PublicHome";
 import PublicLayout from "./component/PublicLayout";
-import AdminLayout from "./component/AdminLayout";
-import AdminHome from "./component/AdminHome";
-import AdminLogin from "./component/AdminLogin";
-import AdminMostre from "./component/AdminMostre";
-import AdminBio from "./component/AdminBio";
+import PublicHome from "./component/PublicHome";
 import AboutLux from "./component/AboutLux";
+import WorkLux from "./component/WorkLux";
+import AdminLogin from "./component/admin/AdminLogin";
+import AdminLayout from "./component/admin/AdminLayout";
+import AdminHome from "./component/admin/AdminHome";
+import AdminMostre from "./component/admin/AdminMostre";
+import AdminBio from "./component/admin/AdminBio";
+
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
         <Route path="/" element={<PublicLayout/>}>
          <Route index element ={<PublicHome/>}/>
          <Route path="/about" element={<AboutLux/>}/>
+         <Route path="/work" element={<WorkLux/>}/>
         </Route>
 
         <Route path="/login" element={<AdminLogin/>}/>

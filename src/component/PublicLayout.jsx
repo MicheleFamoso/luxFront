@@ -1,6 +1,7 @@
 
 import { Outlet } from "react-router-dom";
 import LuxNavBar from "./LuxNavBar"; 
+import WorkLux from "./WorkLux";
 const PublicLayout =()=>{
     return(
          <div className="  grid grid-rows-[auto_1fr_auto] min-h-screen bg-panna  ">
@@ -9,6 +10,7 @@ const PublicLayout =()=>{
             </header>
             <main className="">
                 <Outlet/>
+              
             </main>
             <footer className="">3</footer>
           </div>

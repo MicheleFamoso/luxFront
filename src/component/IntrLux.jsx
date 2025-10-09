@@ -5,8 +5,8 @@ const IntrLux = () => {
   const isHome = location.pathname === "/"
 
   return (
-    <div className="flex justify-center">
-       <div className={`bg-hero bg-cover bg-center  rounded-4xl shadow-xl transition-all duration-500 ease-in-out  ${isHome?"md:h-90 h-70 w-80 md:w-100 pt-10":"md:h-50 h-40 w-80 pt-4" } `}>
+    <div className="flex justify-center ">
+       <div className={`bg-hero bg-cover bg-center  rounded-4xl shadow-xl transition-all duration-500 ease-in-out  ${isHome?"md:h-80 h-70 w-80 md:w-100 pt-10":"md:h-46 h-40 w-80 pt-4" } `}>
       <div className="flex justify-center  md:items-center ">
         <img
           className={` object-cover rounded-full shadow-2xl${isHome? "md:w-40 w-24":"md:20 w-15"}`} 
