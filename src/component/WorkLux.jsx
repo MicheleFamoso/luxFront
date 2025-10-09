@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Carousel from "./Carousel";
+import { ArrowUpCircleIcon } from "@heroicons/react/24/solid";
 
 const WorkLux = () => {
   const [posts, Setposts] = useState([]);
@@ -27,7 +28,7 @@ const WorkLux = () => {
       {posts.map((post) => (
         <div
           key={post.id}
-          className="grid md:grid-cols-3 grid-cols-1 gap-6 px-2 md:px-0 mb-40"
+          className="grid md:grid-cols-3 grid-cols-1 gap-6 2xl:gap-10 px-2 md:px-0 mb-40"
         >
           <div className="md:col-span-2 rounded-3xl ">
             <Carousel item={post}/>
@@ -58,6 +59,11 @@ const WorkLux = () => {
           </div>
         </div>
       ))}
+      <div className="flex justify-center ">
+        <button
+        onClick={()=> window.scrollTo({top:0, behavior: "smooth"})}
+        ><ArrowUpCircleIcon className="w-10 text-gray-bold hover:text-gray-extraBold"/></button>
+      </div>
     </div>
   );
 };
