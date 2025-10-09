@@ -21,7 +21,7 @@ const Carousel = ({ item }) => {
   return (
     <div>
         <div className="flex justify-center md:w-200 md:h-120 h-80">
-            <img src={images[currentIndex]} alt={item.titolo} /> 
+            <img src={images[currentIndex]} alt={item.titolo} className="shadow-xl rounded-sm"/> 
         </div>
      
       {images.length > 1 && (
