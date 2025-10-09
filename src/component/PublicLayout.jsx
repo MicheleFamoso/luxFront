@@ -2,6 +2,7 @@
 import { Outlet } from "react-router-dom";
 import LuxNavBar from "./LuxNavBar"; 
 import WorkLux from "./WorkLux";
+import FooterLux from "./FooterLux";
 const PublicLayout =()=>{
     return(
          <div className="  grid grid-rows-[auto_1fr_auto] min-h-screen bg-panna  ">
@@ -12,7 +13,9 @@ const PublicLayout =()=>{
                 <Outlet/>
               
             </main>
-            <footer className="">3</footer>
+            <footer className="">
+                <FooterLux/>
+            </footer>
           </div>
     )
 }
