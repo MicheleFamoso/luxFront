@@ -80,66 +80,66 @@ const AdminBio = () => {
 
   useEffect(() => {
     handleBio();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     <div className="   mt-2 md:mt-6 md:w-8/12 md:m-auto static">
-      <div className="ml-6">
+      <div className="">
         {isLoading ? (
           <div>
-            <h1>Caricarento in corso...</h1>
+            <h1 className="font-kosugi text-2xl text-gray-extraBold">
+              Caricarento in corso...
+            </h1>
           </div>
         ) : bios.length === 0 ? (
           <div className="flex mt-10  justify-center">
             <button
               onClick={() => showModal(true)}
-              className="bg-purple-400 px-4 py-2 rounded-sm text-white hover:rounded-4xl hover:bg-purple-700"
+              className="bg-gray-mediumBold/50 px-4 py-2 rounded-3xl text-gray-extraBold  hover:bg-gray-mediumBold"
             >
               Aggiungi
             </button>
           </div>
         ) : (
-          <div className={modal ? "hidden" : ""}>
-            <h1 className="text-6xl text-center font-bold">Bio</h1>{" "}
+          <div className={modal ? "hidden" : "px-6 md:px-0"}>
+            <h1 className="text-6xl font-kosugi text-gray-extraBold font-bold">
+              Bio
+            </h1>{" "}
             {bios.map((bio) => {
               return (
-                <div key={bio.id} className="  mt-10 mr-6 ">
-                  <div className="md:bg-violet-50 md:shadow-md p-6 rounded-3xl ">
-                    <div className="md:flex">
-                      <div className="flex-1">
-                        <p className="text-4xl font-bold text-violet-900 mb-4">
-                          {bio.nome}
+                <div key={bio.id} className="  mt-10  ">
+                  <div className="grid md:grid-cols-3 grid-cols-1">
+                    <div className="">
+                      <p className="text-4xl font-kosugi font-bold text-gray-extraBold mb-2">
+                        {bio.nome}
+                      </p>
+                      <div className=" mt-2 ">
+                        
+                        <p className=" md:text-xl font-kosugi text-gray-light">
+                          {bio.email}
                         </p>
-                        <div className="flex gap-2 mt-4 ">
-                          <EnvelopeIcon className="size-5 text-violet-800"></EnvelopeIcon>
-                          <p className=" text-violet-900 font-bold">
-                            {bio.email}
-                          </p>
-                        </div>
-                      </div>
-
-                      <div >
-                        <p className="text-xl font-black text-violet-800 hidden md:flex ">Biografia:</p>
-                        <p className="text-xl mt-6 md:mt-1"> {bio.bio}</p>
-                            <div className=" mt-10 flex  justify-end">
-                      <button
-                        onClick={() => {
-                          setID(bio.id);
-                          setNome(bio.nome);
-                          setBio(bio.bio);
-                          setEmail(bio.email);
-                          showModal(true);
-                        }}
-                        className="bg-violet-300  p-2 rounded-full hover:bg-amber-400"
-                      >
-                        <PencilIcon className="size-7" />
-                      </button>
-                    </div>
                       </div>
                     </div>
 
-                
+                    <div className="md:col-span-2">
+                     
+                      <p className="text-2xl mt-6 md:mt-0 font-kosugi text-gray-bold"> {bio.bio}</p>
+                    </div>
+                  </div>{" "}
+                  <div className=" mt-10 flex  justify-end">
+                    <button
+                      onClick={() => {
+                        setID(bio.id);
+                        setNome(bio.nome);
+                        setBio(bio.bio);
+                        setEmail(bio.email);
+                        showModal(true);
+                      }}
+                      className="bg-violet-300  p-2 rounded-full hover:bg-amber-400"
+                    >
+                      <PencilIcon className="size-7" />
+                    </button>
                   </div>
                 </div>
               );
