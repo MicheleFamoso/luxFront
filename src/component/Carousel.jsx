@@ -20,7 +20,7 @@ const Carousel = ({ item }) => {
 
   return (
     <div>
-        <div className="flex justify-center xl:w-200 xl:h-120 h-80 md:w-130 2xl:w-250 2xl:h-180">
+        <div className="flex justify-center xl:w-200 xl:h-120 h-80 md:w-130 3xl:w-250 3xl:h-180">
             <img src={images[currentIndex]} alt={item.titolo} className="shadow-xl rounded-sm"/> 
         </div>
      

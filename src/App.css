@@ -15,6 +15,11 @@
     --font-jacquard: "Jacquard 12 Charted",sans-serif;
     --font-kosugi:"Kosugi Maru",sans-serif;
     --font-reenie:"Reenie Beanie",sans-serif;
+    --breakpoint-3xl: 120rem;
+
+    
+   
+  
 
 }
 
@@ -26,5 +31,8 @@
     background-image: url("https://arteinbreve.it/wp-content/uploads/2023/11/Johannes-Vermeer-biografia-e-opere-arte-in-breve_2_11zon-736x445.webp");
   }
 }
+
+
+
 
 
