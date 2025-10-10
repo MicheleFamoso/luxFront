@@ -126,11 +126,10 @@ const AdminMostre = () => {
 
       {/* Modal Aggiungi / Modifica */}
       {showModal && selectedItem && (
-        <div className="p-5"> 
+        <div className="p-5 md:p-0"> 
       
         
-            <p className="font-bold  text-center text-5xl text-violet-900 ">{selectedItem.titolo === "" ? 
-              ("Aggiungi mostra"):("Modifica mostra")}</p>
+           
           
           
           <form
@@ -138,15 +137,17 @@ const AdminMostre = () => {
               e.preventDefault();
               handleMostraSave();    
             }}
-            className="mt-16 md:bg-violet-50 md:shadow-md md:rounded-3xl md:py-5 md:px-10"
+            className=" "
           >
+             <p className="font-bold mb-3 md:mb-10 text-5xl text-gray-extraBold font-kosugi  ">{selectedItem.titolo === "" ? 
+              ("Aggiungi mostra"):("Modifica mostra")}</p>
             <div className="flex md:gap-10 gap-2  flex-col md:flex-row ">
-              <label htmlFor="titolo" className="text-2xl text-violet-800 ml-2 md:ml-0 w-40">
+              <label htmlFor="titolo" className="text-2xl text-gray-bold font-kosugi ml-2 md:ml-0 w-60">
                 Titolo
               </label>
               <input
                 id="titolo"
-                className="text-xl  bg-violet-200 py-2 pl-6 shadow-md rounded-2xl w-full  focus:outline-hidden focus:inset-shadow-sm focus:inset-shadow-violet-400"
+                className=" text-xl font-kosugi text-gray-extraBold bg-panna-medium/80 py-2 pl-6 shadow-md rounded-2xl w-full  focus:outline-hidden focus:inset-shadow-sm focus:inset-shadow-gray-mediumBold/30"
                 value={selectedItem.titolo}
                 onChange={(e) =>
                   setSelectedItem({ ...selectedItem, titolo: e.target.value })
@@ -155,12 +156,12 @@ const AdminMostre = () => {
             </div>
 
             <div className="flex md:gap-10 gap-2  flex-col md:flex-row mt-6 ">
-              <label htmlFor="luogo" className="text-2xl text-violet-800 ml-2 md:ml-0  w-40">
+              <label htmlFor="luogo" className="text-2xl text-gray-bold font-kosugi ml-2 md:ml-0 w-60">
                 Luogo
               </label>
               <input
                 id="luogo"
-                className="text-xl bg-violet-200 py-2 pl-6 shadow-md rounded-2xl w-full  focus:outline-hidden focus:inset-shadow-sm focus:inset-shadow-violet-400"
+                className=" text-xl font-kosugi text-gray-extraBold bg-panna-medium/80 py-2 pl-6 shadow-md rounded-2xl w-full  focus:outline-hidden focus:inset-shadow-sm focus:inset-shadow-gray-mediumBold/30"
                 
                 value={selectedItem.luogo}
                 onChange={(e) =>
@@ -170,14 +171,14 @@ const AdminMostre = () => {
             </div>
 
             <div className="flex md:gap-10 gap-2  flex-col md:flex-row mt-6 ">
-              <label htmlFor="data" className="text-2xl w-40 text-violet-800 ml-2 md:ml-0 ">
+              <label htmlFor="data" className="text-2xl text-gray-bold font-kosugi ml-2 md:ml-0 w-60">
                 Data
               </label>
               <input
                 id="data"
                 type="date"
               
-                className="text-xl bg-violet-200 py-2 px-6 shadow-md rounded-2xl w-full  focus:outline-hidden focus:inset-shadow-sm focus:inset-shadow-violet-400"
+                className=" text-xl font-kosugi text-gray-extraBold bg-panna-medium/80 py-2 px-6 shadow-md rounded-2xl w-full  focus:outline-hidden focus:inset-shadow-sm focus:inset-shadow-gray-mediumBold/30"
 
                 value={selectedItem.data}
                 onChange={(e) =>
@@ -187,13 +188,13 @@ const AdminMostre = () => {
             </div>
 
             <div className="flex md:gap-10 gap-2  flex-col md:flex-row  mt-6">
-              <label htmlFor="descrizione" className="text-2xl text-violet-800 ml-2 md:ml-0 w-40">
+              <label htmlFor="descrizione" className="text-2xl text-gray-bold font-kosugi ml-2 md:ml-0 w-60">
                 Descrizione
               </label>
               <textarea
                 id="descrizione"
                
-                className="text-xl bg-violet-200 py-2 pl-6 shadow-md rounded-2xl w-full  focus:outline-hidden focus:inset-shadow-sm focus:inset-shadow-violet-400"
+                className=" text-xl font-kosugi text-gray-extraBold bg-panna-medium/80 py-2 pl-6 shadow-md rounded-2xl w-full  focus:outline-hidden focus:inset-shadow-sm focus:inset-shadow-gray-mediumBold/30"
 
                 value={selectedItem.descrizione}
                 onChange={(e) =>
@@ -204,12 +205,12 @@ const AdminMostre = () => {
 
             <div className="flex justify-end mt-12 gap-2">
                  <button onClick={() => setShowModal(false)}
-                  className="bg-violet-200 border-1 border-violet-300 px-4 py-2 rounded-3xl hover:bg-red-400">
+                  className="cursor-pointer bg-panna-medium font-kosugi text-gray-bold hover:text-gray-50  px-6 py-3 rounded-3xl hover:bg-red-400/80">
               Annulla
             </button>
               <button
                 type="submit"
-                      className="bg-violet-200 border-1 border-violet-300 p-2 rounded-full  hover:bg-lime-400"
+                      className="cursor-pointer bg-panna-medium  text-gray-bold  p-3 rounded-full  hover:bg-lime-300/60"
 
                 
               >
