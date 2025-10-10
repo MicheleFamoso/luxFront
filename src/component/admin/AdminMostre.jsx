@@ -19,7 +19,7 @@ const AdminMostre = () => {
   // Fetch mostre
   const handleMostre = async () => {
     try {
-      const res = await fetch("http://localhost:8080/mostre", {
+      const res = await fetch("https://extensive-heddie-michelefamoso-b2708d46.koyeb.app/mostre", {
         headers: { Authorization: `Bearer ${token}` },
       });
       if (!res.ok) throw new Error("Errore nel caricamento delle mostre");
@@ -36,8 +36,8 @@ const AdminMostre = () => {
     try {
       const method = selectedItem.id ? "PUT" : "POST";
       const url = selectedItem.id
-        ? `http://localhost:8080/mostre/${selectedItem.id}`
-        : "http://localhost:8080/mostre";
+        ? `https://extensive-heddie-michelefamoso-b2708d46.koyeb.app/${selectedItem.id}`
+        : "https://extensive-heddie-michelefamoso-b2708d46.koyeb.app/mostre";
       const res = await fetch(url, {
         method,
         headers: {
@@ -58,7 +58,7 @@ const AdminMostre = () => {
   // Delete
   const handleMostraDelete = async () => {
     try {
-      const res = await fetch(`http://localhost:8080/mostre/${selectedItem.id}`, {
+      const res = await fetch(`https://extensive-heddie-michelefamoso-b2708d46.koyeb.app/mostre/${selectedItem.id}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",

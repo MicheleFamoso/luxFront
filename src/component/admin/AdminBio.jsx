@@ -18,7 +18,7 @@ const AdminBio = () => {
   const handleBio = async () => {
     const token = localStorage.getItem("token");
     try {
-      const response = await fetch("http://localhost:8080/bio", {
+      const response = await fetch("https://extensive-heddie-michelefamoso-b2708d46.koyeb.app/bio", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -43,7 +43,7 @@ const AdminBio = () => {
   const addBio = async () => {
     const token = localStorage.getItem("token");
     try {
-      const response = await fetch("http://localhost:8080/bio", {
+      const response = await fetch("https://extensive-heddie-michelefamoso-b2708d46.koyeb.app/bio", {
         method: "POST",
         body: JSON.stringify({ nome, email, bio }),
         headers: {
@@ -62,7 +62,7 @@ const AdminBio = () => {
   const updateBio = async () => {
     const token = localStorage.getItem("token");
     try {
-      const response = await fetch("http://localhost:8080/bio/" + id, {
+      const response = await fetch("https://extensive-heddie-michelefamoso-b2708d46.koyeb.app/bio/" + id, {
         method: "PUT",
         body: JSON.stringify({ nome, email, bio }),
         headers: {

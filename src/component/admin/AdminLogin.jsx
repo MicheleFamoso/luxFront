@@ -10,7 +10,7 @@ const AdminLogin = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    fetch("http://localhost:8080/auth/login", {
+    fetch("https://extensive-heddie-michelefamoso-b2708d46.koyeb.app/auth/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

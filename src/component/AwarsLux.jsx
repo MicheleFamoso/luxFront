@@ -5,7 +5,7 @@ const AwardsLux = () => {
 
   const handleMostre = async () => {
     try {
-      const res = await fetch("http://localhost:8080/mostre");
+      const res = await fetch("https://extensive-heddie-michelefamoso-b2708d46.koyeb.app/mostre");
       if (!res.ok) throw new Error("Errore nel caricamento delle mostre");
       const data = await res.json();
       setMostre(data);

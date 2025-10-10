@@ -7,7 +7,7 @@ const WorkLux = () => {
 
   const handlePost = async () => {
     try {
-      const response = await fetch("http://localhost:8080/post");
+      const response = await fetch("https://extensive-heddie-michelefamoso-b2708d46.koyeb.app/post");
       if (!response.ok) {
         throw new Error("Errore nel recupero dei post.");
       }

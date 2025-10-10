@@ -18,7 +18,7 @@ const AdminHome = () => {
 
   const handlePost = async () => {
     try {
-      const response = await fetch("http://localhost:8080/post", {
+      const response = await fetch("https://extensive-heddie-michelefamoso-b2708d46.koyeb.app/post", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -36,7 +36,7 @@ const AdminHome = () => {
 
   const handleCreatePost = async () => {
     try {
-      const response = await fetch("http://localhost:8080/post", {
+      const response = await fetch("https://extensive-heddie-michelefamoso-b2708d46.koyeb.app/post", {
         method: "POST",
         body: JSON.stringify(selectItem),
         headers: {
@@ -59,7 +59,7 @@ const AdminHome = () => {
   const handlePostUpdate = async () => {
     try {
       const response = await fetch(
-        "http://localhost:8080/post/" + selectItem.id,
+        "https://extensive-heddie-michelefamoso-b2708d46.koyeb.app/post/" + selectItem.id,
         {
           method: "PUT",
           body: JSON.stringify(selectItem),
@@ -82,7 +82,7 @@ const AdminHome = () => {
   const deletepost = async () => {
     try {
       const response = await fetch(
-        "http://localhost:8080/post/" + selectItem.id,
+        "https://extensive-heddie-michelefamoso-b2708d46.koyeb.app/post/" + selectItem.id,
         {
           method: "DELETE",
           headers: {
