@@ -158,7 +158,7 @@ const AdminBio = () => {
           <div className="mt-8">
             <form
               onSubmit={(e) => {
-                e.preventDefault;
+                e.preventDefault();
                 bios.length === 0 ? addBio() : updateBio();
               }}
             >
