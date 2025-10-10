@@ -10,6 +10,7 @@ import AdminLayout from "./component/admin/AdminLayout";
 import AdminHome from "./component/admin/AdminHome";
 import AdminMostre from "./component/admin/AdminMostre";
 import AdminBio from "./component/admin/AdminBio";
+import AwardsLux from "./component/AwarsLux";
 
 
 
@@ -21,6 +22,7 @@ function App() {
          <Route index element ={<PublicHome/>}/>
          <Route path="/about" element={<AboutLux/>}/>
          <Route path="/work" element={<WorkLux/>}/>
+         <Route path="/awards" element={<AwardsLux/>}/>
         </Route>
 
         <Route path="/login" element={<AdminLogin/>}/>
