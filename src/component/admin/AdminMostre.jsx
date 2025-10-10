@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import {
-    XCircleIcon, CheckIcon
+     CheckIcon,
+     PlusIcon
+     
   
 } from "@heroicons/react/16/solid";
 import InfoItem from "./InfoItem";
@@ -80,30 +82,30 @@ const AdminMostre = () => {
   return (
     <div className="mt-2 md:mt-6 md:w-8/12 md:m-auto static">
       {isLogin ? (
-        <p>Caricamento in corso...</p>
+        <p className="font-kosugi text-2xl text-gray-extraBold">Caricamento in corso...</p>
       ) : (
         <div>
           {/* Header */}
-          <div className={showModal ? "hidden" : "flex  mr-6"}>
-            <h1 className="text-6xl flex-1 font-bold text-center">Mostre</h1>
+          <div className={showModal ? "hidden" : "flex px-6 md:px-0 "}>
+            <h1 className="text-6xl font-kosugi text-gray-extraBold font-bold flex-1 ">Mostre</h1>
             <button
               onClick={() => {
                 setSelectedItem({ titolo: "", luogo: "", data: "", descrizione: "" });
                 setShowModal(true);
               }}
-              className="text-5xl bg-violet-300 rounded-2xl px-4 pt-1 flex hover:bg-lime-500"
+              className="text-5xl shadow-md cursor-pointer  bg-gray-mediumBold/70 text-gray-bold hover:text-gray-extraBold rounded-full hover:bg-gray-mediumBold"
             >
-              +
+                <PlusIcon className="w-15 p-3" />
             </button>
           </div>
 
           {/* Lista mostre */}
           {mostre.length === 0 ? (
             <div className={showModal ? "hidden" : "mt-5 ml-3"}>
-              <p>
+              <p className="text-xl font-kosugi text-gray-bold">
                 Premi il tasto{" "}
-                <span className="font-bold bg-violet-300 rounded-md text-xl px-1">+</span>{" "}
-                per aggiungere una mostra.
+                <span className="font-bold bg-gray-mediumBold/70 rounded-full py-1 text-2xl ">&nbsp;+&nbsp;</span>
+                 &nbsp;per aggiungere una mostra.
               </p>
             </div>
           ) : (
