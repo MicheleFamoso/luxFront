@@ -39,14 +39,14 @@ const AdminLogin = () => {
   };
 
   return (
-    <div className="flex justify-center h-dvh  bg-gray-50 ">
+    <div className="flex justify-center h-dvh  bg-panna ">
       <form
         onSubmit={handleSubmit}
-        className="bg-purple-200 h-fit px-8 py-6 mt-50 rounded-2xl  shadow-xl shadow-purple-50 border-2 border-purple-300"
+        className=" h-fit px-8 py-6 mt-50   "
       >
-        <h1 className=" text-center mb-10 text-xl font-bold">Login</h1>
+        <h1 className=" text-center mb-10 text-2xl font-bold font-kosugi text-gray-extraBold">Login</h1>
         <div className="flex flex-col">
-          <label htmlFor="email" className=" ml-4 mb-2">
+          <label htmlFor="email" className=" ml-4 mb-2 font-kosugi text-gray-bold">
             Email
           </label>
           <input
@@ -54,7 +54,7 @@ const AdminLogin = () => {
             type="email"
             value={email}
             onChange={(e)=> setEmail(e.target.value)}
-            className="border inset-shadow-sm   border-purple-100 bg-purple-100/80 p-1 rounded-2xl focus:outline-hidden focus:border-2 focus:border-purple-400"
+            className="border inset-shadow-sm font-kosugi text-gray-bold pl-4 border-panna-medium/80 bg-panna-medium p-1 rounded-2xl focus:outline-hidden focus:ring-2 focus:ring-gray-mediumBold"
           />
         </div>
         <div className="flex flex-col mt-6">
@@ -66,7 +66,7 @@ const AdminLogin = () => {
             type="password"
             value={password}
             onChange={(e)=> setPassword(e.target.value)}
-            className="border inset-shadow-sm   border-purple-100 bg-purple-100/80 p-1 rounded-2xl focus:outline-hidden focus:border-2 focus:border-purple-400"
+            className="border inset-shadow-sm font-kosugi text-gray-bold pl-4 border-panna-medium/80 bg-panna-medium p-1 rounded-2xl focus:outline-hidden focus:ring-2 focus:ring-gray-mediumBold"
           />
         </div>
         {Error && (
@@ -75,7 +75,7 @@ const AdminLogin = () => {
         <div className="mt-6 text-center">
           <button
             type="submit"
-            className="bg-purple-300 px-8 py-2 rounded-2xl inset-shadow-sm font-black hover:bg-purple-600 hover:text-white"
+            className="bg-gray-mediumBold/60 px-10 py-2 rounded-3xl inset-shadow-sm font-bold text-xl text-gray-extraBold hover:bg-gray-mediumBold hover:text-white font-kosugi"
           >
             Accedi
           </button>

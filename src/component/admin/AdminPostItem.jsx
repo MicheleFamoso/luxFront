@@ -17,39 +17,47 @@ const AdminPostItem = ({
   const [info, setInfo] = useState(false);
   return (
     <div>
-      <div className=" bg-violet-100 px-5 py-6 rounded-2xl mx-5 md:mx-0">
+      <div className=" bg-panna-medium px-5 py-6 rounded-2xl mx-5 md:mx-0">
         <div className="flex justify-between">
-          <h1 className="font-bold text-2xl text-violet-900">{post.titolo}</h1>
+          <h1 className="font-bold font-kosugi text-3xl text-gray-extraBold">
+            {post.titolo}
+          </h1>
           <button onClick={() => setInfo(!info)}>
             {info ? (
-              <ChevronUpIcon className="size-7"></ChevronUpIcon>
+              <ChevronUpIcon className="size-7 text-gray-extraBold cursor-pointer "></ChevronUpIcon>
             ) : (
-              <ChevronDownIcon className="size-7"></ChevronDownIcon>
+              <ChevronDownIcon className="size-7 text-gray-extraBold cursor-pointer"></ChevronDownIcon>
             )}
           </button>
         </div>
         {info && (
-          <div className="md:mt-2 flex flex-col gap-2   rounded-2xl">
-            <div className="flex  gap-2">
-              <div className="flex gap-2">
-                <ArrowsPointingOutIcon className="size-6 text-violet-800"></ArrowsPointingOutIcon>
-                <p className="text-violet-800 font-bold"> {post.dimensione}</p>
-              </div>
-              <div className="flex gap-2">
-                <CalendarIcon className="size-6 text-violet-800"></CalendarIcon>
-                <p className="text-violet-800 font-bold"> {post.data}</p>
-              </div>
-            </div>{" "}
-            <p className="md:text-2xl text-xl text-center md:text-start">
+          <div className="md:mt-6 mt-4 flex flex-col gap-2   rounded-2xl">
+            <p className="md:text-2xl text-xl font-kosugi text-gray-bold ">
               {post.descrizione}
             </p>
-            <div className="grid grid-cols-3  md:gap-3 gap-1  md:p-4 p-1 rounded-2xl md:items-start items-end  ">
+            <div className="">
+              <div className="flex gap-2 mb-2">
+                <ArrowsPointingOutIcon className="size-6 text-gray-light "></ArrowsPointingOutIcon>
+                <p className="text-gray-light font-bold font-kosugi">
+                  {" "}
+                  {post.dimensione}
+                </p>
+              </div>
+              <div className="flex gap-2">
+                <CalendarIcon className="size-6 text-gray-light "></CalendarIcon>
+                <p className="text-gray-light font-kosugi font-bold">
+                  {" "}
+                  {post.data}
+                </p>
+              </div>
+            </div>{" "}
+            <div className="grid grid-cols-3  md:gap-3 gap-1  md:p-4 p-1 rounded-2xl  items-end  ">
               <img
                 src={post.primaImmagine}
                 className={
                   post.primaImmagine === ""
                     ? `hidden`
-                    : ` object-scale-down md:border-9 border-4 border-gray-800 `
+                    : ` object-scale-down shadow-xl `
                 }
                 alt="foto opera 1 "
               />
@@ -58,7 +66,7 @@ const AdminPostItem = ({
                 className={
                   post.secondaImmagine === ""
                     ? `hidden`
-                    : ` object-scale-down  md:border-9 border-4  border-gray-800 `
+                    : ` object-scale-down shadow-xl `
                 }
                 alt="foto opera 2"
               />
@@ -67,7 +75,7 @@ const AdminPostItem = ({
                 className={
                   post.terzaImmagine === ""
                     ? `hidden`
-                    : ` object-scale-down  md:border-9 border-4 border-gray-800 `
+                    : ` object-scale-down shadow-xl `
                 }
                 alt="foto opera 3"
               />
@@ -78,7 +86,7 @@ const AdminPostItem = ({
                   setSelectedItem(post);
                   setShowModal(true);
                 }}
-                className="bg-violet-300  p-2 rounded-full hover:bg-amber-400"
+                className="bg-gray-mediumBold/70  p-2 rounded-full hover:bg-gray-mediumBold"
               >
                 <PencilIcon className="size-7" />
               </button>
@@ -87,7 +95,7 @@ const AdminPostItem = ({
                   setSelectedItem(post);
                   setDeleteModal(true);
                 }}
-                className="bg-violet-300 p-2 rounded-full hover:bg-red-400"
+                className="bg-gray-mediumBold/70  p-2 rounded-full hover:bg-gray-mediumBold"
               >
                 <TrashIcon className="size-7 "></TrashIcon>
               </button>

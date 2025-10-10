@@ -3,7 +3,7 @@ import AdminNav from "./AdminNav";
 
 const AdminLayout = () => {
   return (
-    <div className=" grid grid-rows-[auto_1fr_auto] min-h-screen bg-gray-50  ">
+    <div className=" grid grid-rows-[auto_1fr_auto] min-h-screen bg-panna  ">
       <header className=" ">
         <AdminNav/>
       </header>
@@ -11,7 +11,7 @@ const AdminLayout = () => {
         <Outlet />
       </main>
       <footer className="text-center  mb-4 ">
-        <p className=" rounded-4xl py-2 px-10  ">Sviluppato da <span className="font-bold text-violet-700"> Michele Famoso</span></p>
+        <p className=" py-2 px-10 font-kosugi text-gray-bold ">Sviluppato da <span className="font-bold text-gray-extraBold"> Michele Famoso</span></p>
       </footer>
     </div>
   );

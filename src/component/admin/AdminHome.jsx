@@ -6,6 +6,7 @@ import {
   CalendarIcon,
   ArrowsPointingOutIcon,
   CheckIcon,
+  PlusIcon
 } from "@heroicons/react/16/solid";
 
 import AdminPostItem from "./AdminPostItem";
@@ -112,8 +113,8 @@ const AdminHome = () => {
     <div className=" mt-2 md:mt-6 md:w-8/12 md:m-auto static">
       <div className="">
         <div className={showModal ? "hidden " : ""}>
-          <div className="flex  mr-6 ">
-            <h1 className="text-6xl  flex-1 font-bold text-center">Post</h1>
+          <div className="flex px-6 md:px-0">
+            <h1 className="text-6xl font-kosugi text-gray-extraBold flex-1 font-bold">Post</h1>
             <button
               onClick={() => {
                 setSelectedItem({
@@ -127,11 +128,11 @@ const AdminHome = () => {
                 });
                 setShowModal(true);
               }}
-              className="text-5xl  bg-violet-300 rounded-2xl px-4 pt-1 flex hover:bg-lime-500 "
+              className="text-5xl shadow-md cursor-pointer  bg-gray-mediumBold/70 text-gray-bold hover:text-gray-extraBold rounded-full hover:bg-gray-mediumBold"
             >
-              +
+              <PlusIcon className="w-15 p-3" />
             </button>
-          </div>{" "}
+          </div>
           {posts.map((post) => {
             return (
               <div key={post.id} className="mt-6 grid grid-cols-1 gap-4">
@@ -156,9 +157,9 @@ const AdminHome = () => {
               className="mt-16 md:bg-violet-50 md:shadow-md md:rounded-3xl md:py-5 md:px-10"
               onSubmit={(e) => {
                 e.preventDefault();
-                if (!selectItem.id ) {
+                if (!selectItem.id) {
                   handleCreatePost();
-                } else handlePostUpdate()
+                } else handlePostUpdate();
 
                 setShowModal(false);
               }}
