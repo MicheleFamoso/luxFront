@@ -1,11 +1,4 @@
-import {
-  TrashIcon,
-  PencilIcon,
-  CalendarIcon,
-  ArrowsPointingOutIcon,
-  ChevronDownIcon,
-  ChevronUpIcon,
-} from "@heroicons/react/16/solid";
+import { TrashIcon,PencilIcon,CalendarIcon,ArrowsPointingOutIcon,ChevronDownIcon,ChevronUpIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
 
 const AdminPostItem = ({
@@ -80,13 +73,13 @@ const AdminPostItem = ({
                 alt="foto opera 3"
               />
             </div>{" "}
-            <div className="flex gap-4 justify-end mt-4 ">
+            <div className="flex gap-4 justify-end mt-2 ">
               <button
                 onClick={() => {
                   setSelectedItem(post);
                   setShowModal(true);
                 }}
-                className="bg-gray-mediumBold/70  p-2 rounded-full hover:bg-gray-mediumBold"
+                className="shadow-md cursor-pointer  bg-gray-mediumBold/50 text-gray-bold hover:text-gray-extraBold   p-2 rounded-full hover:bg-gray-mediumBold"
               >
                 <PencilIcon className="size-7" />
               </button>
@@ -95,7 +88,7 @@ const AdminPostItem = ({
                   setSelectedItem(post);
                   setDeleteModal(true);
                 }}
-                className="bg-gray-mediumBold/70  p-2 rounded-full hover:bg-gray-mediumBold"
+                className="shadow-md cursor-pointer  bg-gray-mediumBold/50 text-gray-bold hover:text-gray-extraBold   p-2 rounded-full hover:bg-gray-mediumBold"
               >
                 <TrashIcon className="size-7 "></TrashIcon>
               </button>
