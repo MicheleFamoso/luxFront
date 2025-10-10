@@ -222,23 +222,23 @@ const AdminMostre = () => {
 
       {/* Modal Delete */}
       {showModalDelete && selectedItem && (
-        <div className="fixed inset-0 bg-black/90 flex justify-center items-center z-50">
-          <div className="bg-violet-50 px-8 py-6 rounded-3xl">
-            <h2 className="text-xl font-bold mb-4">Conferma eliminazione</h2>
-            <p className="mb-6">
+        <div className="fixed inset-0 bg-black/30  backdrop-blur-xs  bg-opacity-30 flex justify-center items-center z-50">
+          <div className="bg-panna-medium shadow-2xl px-8 py-6 rounded-3xl mx-4">
+            <h2 className="text-2xl font-bold mb-4 font-kosugi text-gray-extraBold">Conferma eliminazione</h2>
+            <p className="mb-4 text-xl font-kosugi text-gray-bold">
               Sei sicuro di voler eliminare
-              <span className="font-bold text-violet-950">{selectedItem.titolo}</span>?
+              <span className="font-bold text-gray-extraBold"> {selectedItem.titolo} </span>?
             </p>
-            <div className="flex justify-around">
+            <div className="flex justify-end gap-3">
               <button
                 onClick={() => setShowModalDelete(false)}
-                className="bg-violet-200 py-2 px-4 rounded-3xl hover:bg-violet-600 hover:text-white"
+                className="py-3 px-6 rounded-3xl shadow-md cursor-pointer font-kosugi  bg-gray-mediumBold/30 text-gray-extraBold hover:text-white    hover:bg-gray-mediumBold"
               >
                 Annulla
               </button>
               <button
                 onClick={handleMostraDelete}
-                className="bg-red-200 py-2 px-4 rounded-3xl hover:bg-red-600 hover:text-white"
+                className="py-3 px-6 rounded-3xl shadow-md cursor-pointer font-kosugi  bg-gray-mediumBold/30 text-gray-extraBold hover:text-white     hover:bg-red-400/80"
               >
                 Elimina
               </button>
