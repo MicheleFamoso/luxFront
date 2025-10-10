@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import {
-  EnvelopeIcon,
+  
   PencilIcon,
-  TrashIcon,
+
   CheckIcon,
-} from "@heroicons/react/16/solid";
+} from "@heroicons/react/24/outline"
 
 const AdminBio = () => {
   const [bios, setBios] = useState([]);
@@ -136,7 +136,7 @@ const AdminBio = () => {
                         setEmail(bio.email);
                         showModal(true);
                       }}
-                      className="bg-violet-300  p-2 rounded-full hover:bg-amber-400"
+                      className="shadow-md cursor-pointer  bg-gray-mediumBold/50 text-gray-bold hover:text-gray-extraBold   p-2 rounded-full hover:bg-gray-mediumBold"
                     >
                       <PencilIcon className="size-7" />
                     </button>
@@ -149,10 +149,10 @@ const AdminBio = () => {
       </div>
 
       {modal && (
-        <div className="p-5">
+        <div className="px-6 md:px-0">
           <div className="flex flex-row ">
-            <p className="text-5xl font-bold text-violet-900 flex-1 text-center ">
-              Modifica Bio
+            <p className="text-5xl font-bold text-gray-extraBold font-kosugi ">
+            Bio
             </p>
           </div>
           <div className="mt-8">
@@ -162,11 +162,11 @@ const AdminBio = () => {
                 bios.length === 0 ? addBio() : updateBio();
               }}
             >
-              <div className="md:bg-violet-50 md:shadow-md md:rounded-3xl md:py-10 py-5 ">
-                <div className="px-2 md:px-10">
-                  <div className="flex md:gap-10 gap-2  flex-col md:flex-row ">
+              <div className=" ">
+                <div className="">
+                  <div className="flex md:gap-16 gap-2  flex-col md:flex-row ">
                     <label
-                      className="text-2xl text-violet-800 ml-2 md:ml-0"
+                      className="text-2xl font-kosugi text-gray-bold ml-2 md:ml-0"
                       htmlFor="nome"
                     >
                       Nome
@@ -175,14 +175,14 @@ const AdminBio = () => {
                       placeholder="Mario Rossi"
                       id="nome"
                       type="text"
-                      className="text-xl bg-violet-200 py-2 pl-6 shadow-md rounded-2xl w-full  focus:outline-hidden focus:inset-shadow-sm focus:inset-shadow-violet-400"
+                      className="text-xl font-kosugi text-gray-extraBold bg-panna-medium/80 py-2 pl-6 shadow-md rounded-2xl w-full  focus:outline-hidden focus:inset-shadow-sm focus:inset-shadow-gray-mediumBold/30"
                       value={nome}
                       onChange={(e) => setNome(e.target.value)}
                     />
                   </div>
-                  <div className="flex mt-6 md:gap-10 gap-2  flex-col md:flex-row ">
+                  <div className="flex mt-6 md:gap-12 gap-2  flex-col md:flex-row ">
                     <label
-                      className="text-2xl text-violet-800 ml-2 md:ml-0"
+                      className="text-2xl font-kosugi text-gray-bold ml-2 md:ml-0"
                       htmlFor="email"
                     >
                       Email
@@ -191,14 +191,14 @@ const AdminBio = () => {
                       placeholder="pippo@gmail.com"
                       id="email"
                       type="email"
-                      className="  text-xl bg-violet-200 py-2 pl-6 shadow-md rounded-2xl w-full  focus:outline-hidden focus:inset-shadow-sm focus:inset-shadow-violet-400"
+                      className=" text-xl font-kosugi text-gray-extraBold bg-panna-medium/80 py-2 pl-6 shadow-md rounded-2xl w-full  focus:outline-hidden focus:inset-shadow-sm focus:inset-shadow-gray-mediumBold/30"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                     />
                   </div>
-                  <div className="flex mt-8 md:gap-16 gap-2  flex-col md:flex-row">
+                  <div className="flex mt-8 md:gap-18 gap-2  flex-col md:flex-row">
                     <label
-                      className="text-2xl text-violet-800 ml-2 md:ml-0"
+                      className="text-2xl font-kosugi text-gray-bold ml-2 md:ml-0"
                       htmlFor="bio"
                     >
                       Bio
@@ -207,7 +207,7 @@ const AdminBio = () => {
                       name="bio"
                       id="bio"
                       placeholder="Tra colori, forme e melodie, esploro il confine tra realtà e immaginazione. Le mie opere nascono da curiosità, notti insonni e caffè troppo forti, cercando di catturare ciò che le parole non riescono a descrivere"
-                      className=" text-xl shadow-md  bg-violet-200 py-2 px-6 rounded-2xl w-full focus:outline-hidden focus:inset-shadow-sm focus:inset-shadow-violet-400  "
+                      className=" text-xl font-kosugi text-gray-extraBold bg-panna-medium/80 py-2 pl-6 shadow-md rounded-2xl w-full  focus:outline-hidden focus:inset-shadow-sm focus:inset-shadow-gray-mediumBold/30"
                       value={bio}
                       onChange={(e) => setBio(e.target.value)}
                     ></textarea>
@@ -221,13 +221,13 @@ const AdminBio = () => {
                         setEmail("");
                         showModal(false);
                       }}
-                      className="bg-violet-200 border-1 border-violet-300 px-4 py-2 rounded-3xl hover:bg-red-400"
+                      className="cursor-pointer bg-panna-medium font-kosugi text-gray-bold hover:text-gray-50  px-6 py-3 rounded-3xl hover:bg-red-400/80"
                     >
                       Annulla
                     </button>
                     <button
                       type="submit"
-                      className="bg-violet-200 border-1 border-violet-300 p-2 rounded-full  hover:bg-lime-400"
+                      className="cursor-pointer bg-panna-medium  text-gray-bold  p-3 rounded-full  hover:bg-lime-300/60"
                     >
                       <CheckIcon className="size-7"></CheckIcon>
                     </button>
