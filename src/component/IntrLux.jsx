@@ -10,7 +10,7 @@ const IntrLux = () => {
       <div className="flex justify-center  md:items-center ">
         <img
           className={` object-cover rounded-full shadow-2xl${isHome? "md:w-40 w-24":"md:20 w-15"}`} 
-          src="/public/img-profile.jpg"
+          src="https://i.postimg.cc/2j9dN7W6/img-profile.jpg"
           alt="img-profile"
         />
       </div>
