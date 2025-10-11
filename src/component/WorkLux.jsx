@@ -62,7 +62,7 @@ const WorkLux = () => {
       <div className="flex justify-center ">
         <button
         onClick={()=> window.scrollTo({top:0, behavior: "smooth"})}
-        ><ArrowUpCircleIcon className="w-10 text-gray-bold hover:text-gray-extraBold"/></button>
+        ><ArrowUpCircleIcon className="w-10 text-gray-bold hover:text-gray-extraBold animate-bounce cursor-pointer"/></button>
       </div>
     </div>
   );

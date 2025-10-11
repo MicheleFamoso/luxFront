@@ -92,9 +92,16 @@ const AdminBio = () => {
   return (
     <div className="mt-2 md:mt-6 md:w-8/12 md:m-auto static">
       {isLoading ? (
-        <h1 className="font-kosugi text-2xl text-gray-extraBold">
+        <div className="flex flex-col justify-center justify-items-center items-center">  
+           <div class="w-6 h-6 border-4 border-gray-mediumBold border-t-transparent rounded-full animate-spin"></div>
+           <h1 className="font-kosugi text-3xl text-gray-extraBold  ">
           Caricamento in corso...
+
         </h1>
+     
+        </div>
+       
+
       ) : bios.length === 0 ? (
         <div className="flex mt-10 justify-center">
           <button
