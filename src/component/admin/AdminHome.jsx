@@ -11,7 +11,7 @@ import AdminPostItem from "./AdminPostItem";
 const AdminHome = () => {
   const [posts, Setposts] = useState([]);
   const token = localStorage.getItem("token");
-
+  const [isLoading,setIsLoading] = useState(true)
   const [selectItem, setSelectedItem] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [deleteModal, setDeleteModal] = useState(false);
@@ -29,8 +29,10 @@ const AdminHome = () => {
       const data = await response.json();
       Setposts(data);
       console.log(data);
+        setIsLoading(false);
     } catch (err) {
       console.log(err);
+        setIsLoading(false);
     }
   };
 
@@ -109,7 +111,16 @@ const AdminHome = () => {
   return (
     <div className=" mt-2 md:mt-6 md:w-8/12 md:m-auto static">
       <div className="">
-        <div className={showModal ? "hidden " : ""}>
+        {isLoading? (
+           <div className="flex flex-col justify-center justify-items-center items-center">  
+           <div class="w-6 h-6 border-4 border-gray-mediumBold border-t-transparent rounded-full animate-spin"></div>
+           <h1 className="font-kosugi text-2xl text-gray-bold mt-4 ">
+          Caricamento in corso...
+
+        </h1>
+     
+        </div>
+        ): (   <div className={showModal ? "hidden " : ""}>
           <div className="flex px-6 md:px-0">
             <h1 className="text-6xl font-kosugi text-gray-extraBold flex-1 font-bold">Post</h1>
             <button
@@ -142,7 +153,8 @@ const AdminHome = () => {
               </div>
             );
           })}
-        </div>
+        </div>) }
+     
 
         {showModal && selectItem && (
           <div className="p-5 md:p-0">
