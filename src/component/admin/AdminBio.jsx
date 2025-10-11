@@ -94,7 +94,7 @@ const AdminBio = () => {
       {isLoading ? (
         <div className="flex flex-col justify-center justify-items-center items-center">  
            <div class="w-6 h-6 border-4 border-gray-mediumBold border-t-transparent rounded-full animate-spin"></div>
-           <h1 className="font-kosugi text-3xl text-gray-extraBold  ">
+           <h1 className="font-kosugi text-2xl text-gray-bold mt-4 ">
           Caricamento in corso...
 
         </h1>
