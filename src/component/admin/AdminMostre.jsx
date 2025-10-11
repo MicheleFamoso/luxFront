@@ -36,7 +36,7 @@ const AdminMostre = () => {
     try {
       const method = selectedItem.id ? "PUT" : "POST";
       const url = selectedItem.id
-        ? `https://extensive-heddie-michelefamoso-b2708d46.koyeb.app/${selectedItem.id}`
+        ? `https://extensive-heddie-michelefamoso-b2708d46.koyeb.app/mostre/${selectedItem.id}`
         : "https://extensive-heddie-michelefamoso-b2708d46.koyeb.app/mostre";
       const res = await fetch(url, {
         method,
