@@ -51,7 +51,7 @@ const AboutLux = () => {
                     {bio.email}
                   </a>
                 </div>
-                <div>
+                <div className="mt-3">
                   <a
                     href="https://is.gd/luxfamososhop"
                     className="font-kosugi text-xl text-gray-bold font-bold"
