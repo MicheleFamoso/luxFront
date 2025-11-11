@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
-
+import { ArrowUpCircleIcon } from "@heroicons/react/24/solid";
 const AwardsLux = () => {
   const [mostre, setMostre] = useState([]);
 
   const handleMostre = async () => {
     try {
-      const res = await fetch("https://extensive-heddie-michelefamoso-b2708d46.koyeb.app/mostre");
+      const res = await fetch(
+        "https://extensive-heddie-michelefamoso-b2708d46.koyeb.app/mostre"
+      );
       if (!res.ok) throw new Error("Errore nel caricamento delle mostre");
       const data = await res.json();
       setMostre(data);
@@ -21,7 +23,7 @@ const AwardsLux = () => {
 
   return (
     <div className=" mt-2 md:mt-6 md:w-8/12 md:m-auto static">
-      {mostre.map((mostra,index) => (
+      {mostre.map((mostra, index) => (
         <div key={mostra.id} className=" mb-6">
           <div className="grid grid-cols-1 md:grid-cols-3 px-2 md:px-0">
             <div className="font-kosugi mb-4 md:mb-0">
@@ -29,16 +31,24 @@ const AwardsLux = () => {
               <p className="text-xl text-gray-mediumBold">{mostra.luogo}</p>
             </div>{" "}
             <div className="md:col-span-2 font-kosugi">
-              <p className="text-2xl  text-gray-medium ">{mostra.descrizione}</p>
-              <p className=" text-gray-mediumBold text-end mt-2">{mostra.data}</p>
+              <p className="text-2xl  text-gray-medium ">
+                {mostra.descrizione}
+              </p>
+              <p className=" text-gray-mediumBold text-end mt-2">
+                {mostra.data}
+              </p>
             </div>
           </div>
-            {index !== mostre.length -1 && (
-                <hr className=" mx-2 md:mx-0 m-2 md:m-6 text-gray-light" />
-            )}
-          
+          {index !== mostre.length - 1 && (
+            <hr className=" mx-2 md:mx-0 m-2 md:m-6 text-gray-light" />
+          )}
         </div>
       ))}
+      <div className="flex justify-center ">
+        <button onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
+          <ArrowUpCircleIcon className="w-10 text-gray-bold hover:text-gray-extraBold  cursor-pointer" />
+        </button>
+      </div>
     </div>
   );
 };

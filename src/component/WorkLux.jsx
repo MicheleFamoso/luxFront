@@ -7,7 +7,9 @@ const WorkLux = () => {
 
   const handlePost = async () => {
     try {
-      const response = await fetch("https://extensive-heddie-michelefamoso-b2708d46.koyeb.app/post");
+      const response = await fetch(
+        "https://extensive-heddie-michelefamoso-b2708d46.koyeb.app/post"
+      );
       if (!response.ok) {
         throw new Error("Errore nel recupero dei post.");
       }
@@ -20,7 +22,6 @@ const WorkLux = () => {
   };
   useEffect(() => {
     handlePost();
-   
   }, []);
 
   return (
@@ -31,7 +32,7 @@ const WorkLux = () => {
           className="grid md:grid-cols-3 grid-cols-1 gap-6 2xl:gap-10 px-2 md:px-0 mb-40"
         >
           <div className="md:col-span-2 rounded-3xl ">
-            <Carousel item={post}/>
+            <Carousel item={post} />
           </div>
 
           <div className="flex flex-col ">
@@ -60,9 +61,9 @@ const WorkLux = () => {
         </div>
       ))}
       <div className="flex justify-center ">
-        <button
-        onClick={()=> window.scrollTo({top:0, behavior: "smooth"})}
-        ><ArrowUpCircleIcon className="w-10 text-gray-bold hover:text-gray-extraBold animate-bounce cursor-pointer"/></button>
+        <button onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
+          <ArrowUpCircleIcon className="w-10 text-gray-bold hover:text-gray-extraBold  cursor-pointer" />
+        </button>
       </div>
     </div>
   );
