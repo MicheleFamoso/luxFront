@@ -56,7 +56,7 @@ const AboutLux = () => {
                     href="https://is.gd/luxfamososhop"
                     className="font-kosugi text-xl text-gray-bold font-bold"
                   >
-                    Shop
+                    Lux Shop
                   </a>
                 </div>
               </div>
@@ -68,11 +68,10 @@ const AboutLux = () => {
                   <li className="font-kosugi font-bold text-gray-bold mb-1">
                     Opere su Commissione
                   </li>
-                  <li
-                    href="https://is.gd/luxfamososhop"
-                    className="font-kosugi font-bold text-gray-bold mb-1"
-                  >
-                    Vendita Opere e Stampe
+                  <li className="font-kosugi font-bold text-gray-bold mb-1">
+                    <a href="https://is.gd/luxfamososhop">
+                      Vendita Opere e Stampe
+                    </a>
                   </li>
                   <li className="font-kosugi font-bold text-gray-bold mb-1">
                     Collaborazioni Creative
