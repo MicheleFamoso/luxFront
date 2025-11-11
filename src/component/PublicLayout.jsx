@@ -7,7 +7,6 @@ const PublicLayout = () => {
     <div className="  grid grid-rows-[auto_1fr_auto] min-h-screen bg-panna  ">
       <header className=" ">
         <LuxNavBar />
-        <WorkLux />
       </header>
       <main className="">
         <Outlet />

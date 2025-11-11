@@ -1,5 +1,6 @@
 import IntrLux from "./IntrLux";
 import Navigatelux from "./NavigateLux";
+import WorkLux from "./WorkLux";
 
 const PublicHome = () => {
   return (
@@ -7,6 +8,7 @@ const PublicHome = () => {
       <div>
         <IntrLux />
         <Navigatelux />
+        <WorkLux />
       </div>
     </div>
   );
