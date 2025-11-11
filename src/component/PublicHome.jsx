@@ -7,10 +7,10 @@ const PublicHome = () => {
     <div className=" mt-2 md:mt-6 md:w-11/12 md:m-auto static">
       <div>
         <IntrLux />
-        <Navigatelux />
-        <div className="mt-10">
-          <WorkLux />
-        </div>
+        <Navigatelux />{" "}
+      </div>
+      <div className="mt-10">
+        <WorkLux />
       </div>
     </div>
   );
