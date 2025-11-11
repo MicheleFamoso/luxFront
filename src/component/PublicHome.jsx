@@ -5,7 +5,7 @@ import WorkLux from "./WorkLux";
 const PublicHome = () => {
   return (
     <div className=" mt-2 md:mt-6 md:w-11/12 md:m-auto static">
-      <div>
+      <div className="mb-20">
         <IntrLux />
         <Navigatelux />{" "}
       </div>
