@@ -1,38 +1,28 @@
-@import url('https://fonts.googleapis.com/css2?family=Jacquard+12+Charted&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Kosugi+Maru&family=SUSE+Mono:ital,wght@0,100..800;1,100..800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Reenie+Beanie&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Jacquard+12+Charted&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Kosugi+Maru&family=SUSE+Mono:ital,wght@0,100..800;1,100..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Reenie+Beanie&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap");
 @import "tailwindcss";
 
-
 @theme {
-    --color-panna: #FFFBF0;
-    --color-panna-medium:#f2ece0;
-    --color-gray-light:#BEB7AD;
-    --color-gray-medium:#8E877E;
-    --color-gray-bold:#7f7f7c;
-    --color-gray-extraBold:#4C4B48;
-    --color-gray-mediumBold:#a2857c;
-    --font-jacquard: "Jacquard 12 Charted",sans-serif;
-    --font-kosugi:"Kosugi Maru",sans-serif;
-    --font-reenie:"Reenie Beanie",sans-serif;
-    --breakpoint-3xl: 120rem;
-
-    
-   
-  
-
+  --color-panna: #fffbf0;
+  --color-panna-medium: #f2ece0;
+  --color-gray-light: #beb7ad;
+  --color-gray-medium: #8e877e;
+  --color-gray-bold: #7f7f7c;
+  --color-gray-extraBold: #4c4b48;
+  --color-gray-mediumBold: #a2857c;
+  --font-jacquard: "Jacquard 12 Charted", sans-serif;
+  --font-kosugi: "Kosugi Maru", sans-serif;
+  --font-reenie: "Shadows Into Light", sans-serif;
+  --breakpoint-3xl: 120rem;
 }
 
 @layer utilities {
   .bg-hero {
-    background-image: url('/public/paper.jpg');
+    background-image: url("/public/paper.jpg");
   }
   .bg-work {
     background-image: url("https://arteinbreve.it/wp-content/uploads/2023/11/Johannes-Vermeer-biografia-e-opere-arte-in-breve_2_11zon-736x445.webp");
   }
 }
-
-
-
-
-
