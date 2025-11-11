@@ -1,12 +1,37 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 🎨 Frontend
 
-Currently, two official plugins are available:
+Il frontend è realizzato con **React** e **TailwindCSS**.  
+Gestisce la parte pubblica del sito e una sezione riservata per l'amministrazione dei contenuti.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Tecnologie principali
+- React
+- TailwindCSS
+- React Router
 
-## Expanding the ESLint configuration
+---
+### Funzionalità
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+#### ✅ Parte pubblica (accessibile a tutti)
+- Visualizzazione opere e post
+- Visualizzazione mostre
+- Accesso agli endpoint pubblici del backend
+- Navigazione dinamica tra pagine e sezioni
+
+#### 🔐 Area riservata (solo utenti autenticati)
+- Login con token JWT
+- Dashboard amministrazione
+- Creazione, modifica e cancellazione di:
+  - Post
+  - Mostre
+  - Bio dell'artista
+- Accesso all’endpoint privato del backend
+
+
+---
+
+
+### Deploy Frontend
+Frontend online al seguente link:
+
+👉 https://lucianofamoso.netlify.app/
