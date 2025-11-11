@@ -8,7 +8,9 @@ const PublicHome = () => {
       <div>
         <IntrLux />
         <Navigatelux />
-        <WorkLux />
+        <div className="mt-10">
+          <WorkLux />
+        </div>
       </div>
     </div>
   );
