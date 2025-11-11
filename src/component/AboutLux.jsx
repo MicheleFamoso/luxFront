@@ -42,19 +42,23 @@ const AboutLux = () => {
                 <p className="mt-2 text-4xl font-reenie mb-2 text-gray-extraBold">
                   {bio.bio}
                 </p>
-                <a
-                  href={`mailto:${bio.email}`}
-                  className="font-kosugi text-xl text-gray-bold font-bold"
-                >
-                  {" "}
-                  {bio.email}
-                </a>
-                <a
-                  href="https://is.gd/luxfamososhop"
-                  className="font-kosugi text-xl text-gray-bold font-bold"
-                >
-                  Shop
-                </a>
+                <div>
+                  <a
+                    href={`mailto:${bio.email}`}
+                    className="font-kosugi text-xl text-gray-bold font-bold"
+                  >
+                    {" "}
+                    {bio.email}
+                  </a>
+                </div>
+                <div>
+                  <a
+                    href="https://is.gd/luxfamososhop"
+                    className="font-kosugi text-xl text-gray-bold font-bold"
+                  >
+                    Shop
+                  </a>
+                </div>
               </div>
               <div className="md:ml-30 px-4 md:px-0 mt-10 md:mt-0 ">
                 <h3 className="font-kosugi font-extrabold  text-2xl  text-gray-extraBold">
