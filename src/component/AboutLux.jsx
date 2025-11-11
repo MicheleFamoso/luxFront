@@ -42,7 +42,7 @@ const AboutLux = () => {
                 <p className="mt-2 text-4xl font-reenie mb-2 text-gray-extraBold">
                   {bio.bio}
                 </p>
-                <div>
+                <div className="mt-6">
                   <a
                     href={`mailto:${bio.email}`}
                     className="font-kosugi text-xl text-gray-bold font-bold"
