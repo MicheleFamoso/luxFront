@@ -9,8 +9,8 @@ const PublicLayout = () => {
         <LuxNavBar />
       </header>
       <main className="">
-        <WorkLux />
         <Outlet />
+        <WorkLux />
       </main>
       <footer className="">
         <FooterLux />
