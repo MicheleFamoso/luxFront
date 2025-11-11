@@ -66,18 +66,18 @@ const AboutLux = () => {
                 </h3>
                 <ul>
                   <li className="font-kosugi font-bold text-gray-bold mb-1">
-                    Opere su Commissione
+                    Opere su commissione
                   </li>
                   <li className="font-kosugi font-bold text-gray-bold mb-1">
                     <a href="https://is.gd/luxfamososhop">
-                      Vendita Opere e Stampe
+                      Vendita opere e stampe
                     </a>
                   </li>
                   <li className="font-kosugi font-bold text-gray-bold mb-1">
-                    Collaborazioni Creative
+                    Collaborazioni creative
                   </li>
                   <li className="font-kosugi font-bold text-gray-bold mb-1">
-                    Mostre e Installazioni
+                    Mostre e installazioni
                   </li>
                 </ul>
               </div>
