@@ -23,15 +23,22 @@ const AwardsLux = () => {
 
   return (
     <div className=" mt-2 md:mt-6 md:w-8/12 md:m-auto static">
+      <h1 className="text-6xl font-bold font-kosugi px-6 md:px-0   text-gray-medium mb-12 ">
+        Awards/Show
+      </h1>
       {mostre.map((mostra, index) => (
-        <div key={mostra.id} className=" mb-6">
-          <div className="grid grid-cols-1 md:grid-cols-3 px-2 md:px-0">
-            <div className="font-kosugi mb-4 md:mb-0">
-              <h2 className="text-4xl text-gray-extraBold">{mostra.titolo}</h2>
-              <p className="text-xl text-gray-mediumBold">{mostra.luogo}</p>
+        <div key={mostra.id} className=" mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-3 md:gap-6 gap-1 px-6 md:px-0">
+            <div className="font-kosugi  md:mb-0">
+              <h2 className="md:text-4xl text-3xl text-gray-extraBold font-bold">
+                {mostra.titolo}
+              </h2>
+              <p className="md:text-2xl text-xl font-semibold text-gray-mediumBold">
+                {mostra.luogo}
+              </p>
             </div>{" "}
             <div className="md:col-span-2 font-kosugi">
-              <p className="text-2xl  text-gray-medium ">
+              <p className="md:text-3xl text-2xl font-semibold  text-gray-medium ">
                 {mostra.descrizione}
               </p>
               <p className=" text-gray-mediumBold text-end mt-2">

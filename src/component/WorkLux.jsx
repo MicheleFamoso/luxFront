@@ -60,10 +60,13 @@ const WorkLux = () => {
                 </p>
               )}
 
-              <p className="font-kosugi text-gray-light font-black text-2xl">
-                {" "}
-                dimension: {post.dimensione}
-              </p>
+              {post.dimensione === null || post.dimensione === "" ? (
+                ""
+              ) : (
+                <p className="font-kosugi text-gray-light font-black text-2xl">
+                  dimension: {post.dimensione}
+                </p>
+              )}
             </div>
           </div>
         </div>

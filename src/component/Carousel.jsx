@@ -28,11 +28,11 @@ const Carousel = ({ item }) => {
           <img
             src={images[currentIndex]}
             alt={item.titolo}
-            className="shadow-xl rounded-sm w-11/12"
+            className="shadow-xl rounded-sm md:w-11/12"
           />
 
           {images.length > 1 && (
-            <div className="flex justify-center gap-16 mt-2  w-11/12">
+            <div className="flex justify-center gap-16 mt-2  md:w-11/12">
               <button onClick={prevPhoto} disabled={currentIndex === 0}>
                 <ArrowLeftCircleIcon className="w-10 text-gray-light hover:text-gray-extraBold cursor-pointer" />
               </button>

@@ -4,7 +4,7 @@ const Navigatelux = () => {
   const navigate = useNavigate();
   return (
     <div>
-      <div className="flex flex-col md:flex-row justify-center gap-15.5 mt-16 mb-35 3xl:mb-150">
+      <div className="flex flex-col md:flex-row justify-center md:gap-15.5 gap-3 md:mt-16 mt-10 mb-35 3xl:mb-150">
         <button
           onClick={() => {
             const el = document.getElementById("work-section");
