@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Jacquard+12+Charted&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Kosugi+Maru&family=SUSE+Mono:ital,wght@0,100..800;1,100..800&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Reenie+Beanie&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Hubballi&family=Kalam:wght@300;400;700&family=Shadows+Into+Light&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&family=Shadows+Into+Light&display=swap");
 @import "tailwindcss";
 
@@ -14,7 +14,7 @@
   --color-gray-extraBold: #4c4b48;
   --color-gray-mediumBold: #a2857c;
   --font-jacquard: "Jacquard 12 Charted", sans-serif;
-  --font-kosugi: "Kosugi Maru", sans-serif;
+  --font-kosugi: "Hubballi", sans-serif;
   --font-reenie: "Kalam", sans-serif;
   --breakpoint-3xl: 120rem;
 }
