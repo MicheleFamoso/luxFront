@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Carousel from "./Carousel";
 import { ArrowUpCircleIcon } from "@heroicons/react/24/solid";
 import Loading from "./Loading";
+import PostCarousel from "./PostCarousel";
 
 const WorkLux = () => {
   const [posts, Setposts] = useState([]);
@@ -34,49 +35,7 @@ const WorkLux = () => {
       ) : (
         <div>
           {posts.map((post) => (
-            <div
-              key={post.id}
-              className="grid md:grid-cols-3 grid-cols-1 gap-6 2xl:gap-1 px-2 md:px-0 mb-40"
-            >
-              <div className="md:col-span-2 rounded-3xl ">
-                <Carousel item={post} />
-              </div>
-
-              <div className="flex flex-col px-3 md-px-1">
-                <div className="mb-3">
-                  <h2
-                    className="text-6xl md:text-6xl font-black font-kosugi break-words text-gray-extraBold mb-1
- "
-                  >
-                    {post.titolo}
-                  </h2>
-                </div>
-                <div>
-                  <h4 className="font-kosugi text-4xl text-balance font-bold text-gray-bold">
-                    {post.descrizione}
-                  </h4>
-                </div>
-
-                <div className="mt-6 ">
-                  {post.data === null ? (
-                    ""
-                  ) : (
-                    <p className="font-kosugi text-gray-light font-black text-2xl">
-                      {" "}
-                      date: {post.data}
-                    </p>
-                  )}
-
-                  {post.dimensione === null || post.dimensione === "" ? (
-                    ""
-                  ) : (
-                    <p className="font-kosugi text-gray-light font-black text-2xl">
-                      dimension: {post.dimensione}
-                    </p>
-                  )}
-                </div>
-              </div>
-            </div>
+            <PostCarousel key={post.id} post={post} />
           ))}
           <div className="flex justify-center ">
             <button

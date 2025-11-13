@@ -6,7 +6,7 @@ const IntrLux = () => {
           <img
             className="object-cover rounded-full shadow-2xl
               md:w-30 w-24"
-            src="https://i.postimg.cc/2j9dN7W6/img-profile.jpg"
+            src="/img-profile.jpg"
             alt="img-profile"
           />
         </div>
