@@ -1,11 +1,11 @@
 const IntrLux = () => {
   return (
     <div className="flex justify-center ">
-      <div className="bg-hero bg-cover bg-center  rounded-4xl shadow-md transition-all duration-500 ease-in-out  md:h-80 h-70 w-80 md:w-150 pt-10">
+      <div className="bg-hero bg-cover bg-center  rounded-4xl shadow-lg transition-all duration-500 ease-in-out  md:h-80 h-70 w-80 md:w-150 pt-10">
         <div className="flex justify-center  md:items-center ">
           <img
-            className="object-cover rounded-full shadow-2xl
-              md:w-30 w-20 opacity-80"
+            className="object-cover rounded-full 
+              md:w-30 w-20 opacity-80 "
             src="/img-profile.jpg"
             alt="img-profile"
           />
