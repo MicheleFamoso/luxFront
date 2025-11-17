@@ -6,7 +6,7 @@
 @import "tailwindcss";
 
 @theme {
-  --color-panna: #fffbf0;
+  --color-panna: #f3f3f3;
   --color-panna-medium: #f2ece0;
   --color-gray-light: #beb7ad;
   --color-gray-medium: #8e877e;
@@ -21,7 +21,7 @@
 
 @layer utilities {
   .bg-hero {
-    background-image: url("/public/paper.jpg");
+    background-image: url("/paper.jpg");
   }
   .bg-work {
     background-image: url("https://arteinbreve.it/wp-content/uploads/2023/11/Johannes-Vermeer-biografia-e-opere-arte-in-breve_2_11zon-736x445.webp");
