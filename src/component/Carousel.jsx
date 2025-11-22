@@ -59,7 +59,7 @@ const Carousel = ({ item }) => {
         {currentIndex > 0 && (
           <button
             onClick={prevPhoto}
-            className="absolute -left-12 top-1/2 -translate-y-1/2 z-10 p-2"
+            className="absolute -left-12 top-1/2 -translate-y-1/2 z-10 p-2 hidden md:block"
           >
             <ChevronLeftIcon className="w-8 text-gray-light hover:text-gray-extraBold" />
           </button>
@@ -69,7 +69,7 @@ const Carousel = ({ item }) => {
         {currentIndex < images.length - 1 && (
           <button
             onClick={nextPhoto}
-            className="absolute -right-12 top-1/2 -translate-y-1/2 z-10 p-2"
+            className="absolute -right-12 top-1/2 -translate-y-1/2 z-10 p-2 hidden md:block"
           >
             <ChevronRightIcon className="w-8 text-gray-light hover:text-gray-extraBold" />
           </button>
@@ -77,7 +77,7 @@ const Carousel = ({ item }) => {
 
         {/* WRAPPER IMMAGINE */}
         <div
-          className="relative h-[60vh] md:h-[80vh] w-[66vw] md:w-[40vw] flex items-center justify-center overflow-hidden"
+          className="relative h-[60vh] md:h-[80vh]  md:w-[40vw] flex items-center justify-center overflow-hidden"
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
