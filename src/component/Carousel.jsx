@@ -56,8 +56,8 @@ const Carousel = ({ item }) => {
     <div className="flex justify-center">
       <div className="inline-block relative ">
         {images.length > 1 && (
-          <div className="md:hidden   mb-3 flex justify-end  ">
-            <p className="text-sm font-semibold px-4 py-1 text-gray-light rounded-2xl w-fit font-kosugi bg-panna-medium">
+          <div className="md:hidden   mb-3 flex justify-end mr-2 ">
+            <p className="text-sm font-semibold px-4 py-1 text-gray-bold rounded-2xl w-fit font-kosugi bg-panna-medium">
               {currentIndex + 1} - {images.length}
             </p>
           </div>
@@ -92,7 +92,7 @@ const Carousel = ({ item }) => {
           <img
             src={images[currentIndex]}
             alt={item.titolo}
-            className="max-h-full max-w-full object-contain rounded-sm art-shadow transition-all duration-300 ease-out"
+            className="max-h-full max-w-full object-contain rounded-sm  transition-all duration-300 ease-out"
           />
         </div>
 
