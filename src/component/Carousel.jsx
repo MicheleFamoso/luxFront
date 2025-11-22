@@ -55,11 +55,18 @@ const Carousel = ({ item }) => {
   return (
     <div className="flex justify-center">
       <div className="inline-block relative ">
+        {images.length > 1 && (
+          <div className="md:hidden   mb-3 flex justify-end  ">
+            <p className="text-sm font-semibold px-4 py-1 text-gray-light rounded-2xl w-fit font-kosugi bg-panna-medium">
+              {currentIndex + 1} - {images.length}
+            </p>
+          </div>
+        )}
         {/* FRECCIA SINISTRA - sopra la foto, visibile anche su mobile */}
         {currentIndex > 0 && (
           <button
             onClick={prevPhoto}
-            className="absolute -left-12 top-1/2 -translate-y-1/2 z-10 p-2 hidden md:block"
+            className="absolute -left-12 top-1/2 -translate-y-1/2 z-10 p-2 hidden md:block cursor-pointer"
           >
             <ChevronLeftIcon className="w-8 text-gray-light hover:text-gray-extraBold" />
           </button>
@@ -69,7 +76,7 @@ const Carousel = ({ item }) => {
         {currentIndex < images.length - 1 && (
           <button
             onClick={nextPhoto}
-            className="absolute -right-12 top-1/2 -translate-y-1/2 z-10 p-2 hidden md:block"
+            className="absolute -right-12 top-1/2 -translate-y-1/2 z-10 p-2 hidden md:block cursor-pointer"
           >
             <ChevronRightIcon className="w-8 text-gray-light hover:text-gray-extraBold" />
           </button>
@@ -91,7 +98,7 @@ const Carousel = ({ item }) => {
 
         {/* PALLINI SOTTO */}
         {images.length > 1 && (
-          <div className="flex flex-col items-center mt-2 md:w-11/12">
+          <div className="flex flex-col items-center mt-3 md:w-11/12">
             <div className="flex w-full justify-center items-center gap-2">
               {images.map((_, index) => (
                 <button
@@ -99,7 +106,7 @@ const Carousel = ({ item }) => {
                   onClick={() => goToSlide(index)}
                   className={`w-2 h-2 rounded-full transition-all duration-300 ${
                     currentIndex === index
-                      ? "bg-gray-medium/80 scale-130"
+                      ? "bg-gray-extraBold scale-140"
                       : "bg-gray-light/60 hover:bg-gray-500 "
                   }`}
                 />
