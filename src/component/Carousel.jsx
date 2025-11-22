@@ -77,7 +77,7 @@ const Carousel = ({ item }) => {
 
         {/* WRAPPER IMMAGINE */}
         <div
-          className="relative h-[60vh] md:h-[80vh] md:w-[40vw] flex items-center justify-center overflow-hidden"
+          className="relative h-[60vh] md:h-[80vh] w-[60vw] md:w-[40vw] flex items-center justify-center overflow-hidden"
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
