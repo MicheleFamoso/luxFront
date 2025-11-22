@@ -28,7 +28,7 @@ const Carousel = ({ item }) => {
           <img
             src={images[currentIndex]}
             alt={item.titolo}
-            className=" art-shadow rounded-sm h-[60vh] md:h-[80vh] "
+            className=" art-shadow rounded-sm max-h-[60vh] md:max-h-[80vh] w-auto object-contain "
           />
 
           {images.length > 1 && (
