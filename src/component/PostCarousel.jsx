@@ -7,7 +7,7 @@ const PostCarousel = ({ post }) => {
   return (
     <div
       key={post.id}
-      className="grid md:grid-cols-3 grid-cols-1 gap-6 2xl:gap-8 px-2 md:px-0 mb-20 mt-20"
+      className="grid md:grid-cols-3 grid-cols-1 gap-6 2xl:gap-8 px-2 md:px-0 mb-20 mt-40"
     >
       <div className="md:col-span-2 rounded-3xl ">
         <Carousel item={post} />
