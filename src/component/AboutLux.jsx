@@ -48,7 +48,7 @@ const AboutLux = () => {
                     <p className="mt-2 font-light text-2xl md:text-2xl font-reenie md:mb-16 mb-6 text-gray-extraBold">
                       {bio.bio}
                     </p>
-                    <div className="md:mt-6">
+                    <div className="md:mt-5">
                       <a
                         href="https://is.gd/luxfamososhop"
                         className="font-kosugi md:text-3xl hover:text-gray-extraBold underline text-xl text-gray-bold font-bold"
