@@ -7,7 +7,7 @@ const AboutLux = () => {
   const handleBio = async () => {
     try {
       const response = await fetch(
-        "https://extensive-heddie-michelefamoso-b2708d46.koyeb.app/bio"
+        "https://extensive-heddie-michelefamoso-b2708d46.koyeb.app/bio",
       );
 
       if (!response.ok) {
@@ -50,15 +50,6 @@ const AboutLux = () => {
                     </p>
                     <div className="md:mt-6">
                       <a
-                        href={`mailto:${bio.email}`}
-                        className="font-kosugi md:text-3xl text-xl text-gray-bold font-bold"
-                      >
-                        {" "}
-                        {bio.email}
-                      </a>
-                    </div>
-                    <div className="md:mt-3">
-                      <a
                         href="https://is.gd/luxfamososhop"
                         className="font-kosugi md:text-3xl text-xl text-gray-bold font-bold"
                       >
@@ -74,11 +65,7 @@ const AboutLux = () => {
                       <li className="font-kosugi font-bold md:text-2xl text-xl text-gray-bold mb-1">
                         Opere su commissione
                       </li>
-                      <li className="font-kosugi font-bold  md:text-2xl text-xl text-gray-bold mb-1">
-                        <a href="https://is.gd/luxfamososhop">
-                          Vendita opere e stampe
-                        </a>
-                      </li>
+
                       <li className="font-kosugi font-bold  md:text-2xl text-xl text-gray-bold mb-1">
                         Collaborazioni creative
                       </li>
