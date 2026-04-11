@@ -11,12 +11,12 @@ const FooterLux = () => {
         "
         >
           <div>
-            <h4 className="font-kosugi font-bold text-3xl text-gray-extraBold">
+            <h4 className="font-kosugi font-bold text-2xl text-gray-extraBold">
               Email
             </h4>
 
             <a
-              className="font-kosugi  text-gray-bold underline font-semibold text-2xl"
+              className="font-kosugi  text-gray-bold underline font-semibold text-xl"
               href="mailto:lucianofamoso00@gmail.com"
             >
               lucianofamoso00@gmail.com
