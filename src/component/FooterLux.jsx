@@ -23,7 +23,7 @@ const FooterLux = () => {
               email
             </h4>
             <a
-              className="font-kosugi  text-gray-bold font-semibold text-2xl"
+              className="font-kosugi  text-gray-bold underline font-semibold text-2xl"
               href="mailto:lucianofamoso00@gmail.com"
             >
               lucianofamoso00@gmail.com
@@ -34,14 +34,14 @@ const FooterLux = () => {
               online
             </h4>
             <a
-              className="font-kosugi  text-gray-bold font-semibold text-2xl"
+              className="font-kosugi  text-gray-bold underline font-semibold text-2xl"
               href="https://www.behance.net/lucianofamoso"
             >
               {" "}
               Behance/{" "}
             </a>
             <a
-              className="font-kosugi  text-gray-bold  font-semibold text-2xl"
+              className="font-kosugi  text-gray-bold underline  font-semibold text-2xl"
               href="https://www.instagram.com/luxfamoso/"
             >
               Instagram{" "}
@@ -58,7 +58,7 @@ const FooterLux = () => {
               Michele/{" "}
             </a>
             <a
-              className="font-kosugi  text-gray-bold font-semibold text-2xl"
+              className="font-kosugi  text-gray-bold underline font-semibold text-2xl"
               href="mailto:michelefamoso@gmail.com"
             >
               Email
