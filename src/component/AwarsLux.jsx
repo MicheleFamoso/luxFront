@@ -25,7 +25,7 @@ const AwardsLux = () => {
 
   return (
     <div className=" mt-2 md:mt-6 md:w-8/12 md:m-auto static">
-      <h1 className="text-2xl md:text-4xl font-bold font-kosugi px-6 md:px-0   text-gray-medium mb-12 ">
+      <h1 className="text-2xl md:text-5xl font-bold font-kosugi px-6 md:px-0   text-gray-medium mb-12 ">
         Awards/Show
       </h1>
       {isLoading ? (
