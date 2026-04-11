@@ -24,35 +24,35 @@ const FooterLux = () => {
           </div>
 
           <div>
-            <h4 className="font-kosugi font-bold text-3xl text-gray-extraBold">
+            <h4 className="font-kosugi font-bold text-2xl text-gray-extraBold">
               Online
             </h4>
             <a
-              className="font-kosugi  text-gray-bold underline font-semibold text-2xl"
+              className="font-kosugi  text-gray-bold underline font-semibold text-xl"
               href="https://www.behance.net/lucianofamoso"
             >
               {" "}
               Behance/{" "}
             </a>
             <a
-              className="font-kosugi  text-gray-bold underline  font-semibold text-2xl"
+              className="font-kosugi  text-gray-bold underline  font-semibold text-xl"
               href="https://www.instagram.com/luxfamoso/"
             >
               Instagram{" "}
             </a>
           </div>
           <div>
-            <h4 className="font-kosugi font-bold text-3xl text-gray-extraBold">
+            <h4 className="font-kosugi font-bold text-2xl text-gray-extraBold">
               Crafted by
             </h4>
             <a
-              className="font-kosugi  text-gray-bold  font-semibold text-2xl"
+              className="font-kosugi  text-gray-bold  font-semibold text-xl"
               href="https://www.linkedin.com/in/michele-famoso/"
             >
               Michele/{" "}
             </a>
             <a
-              className="font-kosugi  text-gray-bold underline font-semibold text-2xl"
+              className="font-kosugi  text-gray-bold underline font-semibold text-xl"
               href="mailto:michelefamoso@gmail.com"
             >
               Email
