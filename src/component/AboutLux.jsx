@@ -51,14 +51,14 @@ const AboutLux = () => {
                     <div className="md:mt-6">
                       <a
                         href="https://is.gd/luxfamososhop"
-                        className="font-kosugi md:text-3xl text-xl text-gray-bold font-bold"
+                        className="font-kosugi md:text-3xl hover:text-gray-extraBold underline text-xl text-gray-bold font-bold"
                       >
-                        Lux Shop
+                        Lux shop
                       </a>
                     </div>
                   </div>
                   <div className="md:ml-30 px-4 md:px-0 mt-10 md:mt-0 ">
-                    <h3 className="font-kosugi font-extrabold  md:text-4xl text-2xl  text-gray-extraBold">
+                    <h3 className="font-kosugi font-extrabold  md:text-3xl text-2xl  text-gray-extraBold">
                       SERVICES
                     </h3>
                     <ul>
