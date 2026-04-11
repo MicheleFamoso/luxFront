@@ -7,7 +7,7 @@ const FooterLux = () => {
       >
         <hr className=" mx-2 md:mx-0 mb-2 md:mb-6 text-gray-light" />
         <div
-          className="grid grid-cols-1 md:grid-cols-4 px-2 md:px-0 md:p-0 mb-8 md:gap-68
+          className="grid grid-cols-1 md:grid-cols-3 px-2 md:px-0 md:p-0 mb-8 md:gap-68
         "
         >
           <div>
@@ -17,11 +17,6 @@ const FooterLux = () => {
             <p className="font-kosugi text-gray-bold font-semibold text-2xl">
               aka Lux
             </p>
-          </div>
-          <div>
-            <h4 className="font-kosugi font-bold text-3xl text-gray-extraBold">
-              email
-            </h4>
             <a
               className="font-kosugi  text-gray-bold underline font-semibold text-2xl"
               href="mailto:lucianofamoso00@gmail.com"
@@ -29,6 +24,7 @@ const FooterLux = () => {
               lucianofamoso00@gmail.com
             </a>
           </div>
+
           <div>
             <h4 className="font-kosugi font-bold text-3xl text-gray-extraBold">
               online
