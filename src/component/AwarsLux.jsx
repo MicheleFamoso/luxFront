@@ -7,7 +7,7 @@ const AwardsLux = () => {
   const handleMostre = async () => {
     try {
       const res = await fetch(
-        "https://extensive-heddie-michelefamoso-b2708d46.koyeb.app/mostre"
+        "https://extensive-heddie-michelefamoso-b2708d46.koyeb.app/mostre",
       );
       if (!res.ok) throw new Error("Errore nel caricamento delle mostre");
       const data = await res.json();
@@ -36,7 +36,7 @@ const AwardsLux = () => {
             <div key={mostra.id} className=" my-8">
               <div className="grid grid-cols-1 md:grid-cols-3 md:gap-6 mb-8 gap-0 px-6 md:px-0">
                 <div className="font-kosugi md:mb-0  mb-4">
-                  <h2 className="md:text-4xl text-2xl text-gray-extraBold font-bold">
+                  <h2 className="md:text-3xl text-2xl text-gray-extraBold font-bold">
                     {mostra.titolo}
                   </h2>
                   <p className="md:text-2xl text-lg font-semibold text-gray-mediumBold">
