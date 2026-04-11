@@ -44,7 +44,7 @@ const AwardsLux = () => {
                   </p>
                 </div>{" "}
                 <div className="md:col-span-2 font-kosugi">
-                  <p className="md:text-3xl text-xl font-semibold  text-gray-medium ">
+                  <p className="md:text-xl text-xl font-semibold  text-gray-medium ">
                     {mostra.descrizione}
                   </p>
                   <p className=" text-gray-mediumBold text-end md:mb-2">
