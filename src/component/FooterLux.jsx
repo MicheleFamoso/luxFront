@@ -12,11 +12,9 @@ const FooterLux = () => {
         >
           <div>
             <h4 className="font-kosugi font-bold text-3xl text-gray-extraBold">
-              Luciano
+              Email
             </h4>
-            <p className="font-kosugi text-gray-bold font-semibold text-2xl">
-              aka Lux
-            </p>
+
             <a
               className="font-kosugi  text-gray-bold underline font-semibold text-2xl"
               href="mailto:lucianofamoso00@gmail.com"
@@ -27,7 +25,7 @@ const FooterLux = () => {
 
           <div>
             <h4 className="font-kosugi font-bold text-3xl text-gray-extraBold">
-              online
+              Online
             </h4>
             <a
               className="font-kosugi  text-gray-bold underline font-semibold text-2xl"
