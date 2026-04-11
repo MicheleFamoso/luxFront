@@ -6,28 +6,30 @@
 @import "tailwindcss";
 
 @theme {
-  --color-panna: #f3f3f3;
-  --color-panna-medium: #f2ece0;
-  --color-gray-light: #beb7ad;
-  --color-gray-medium: #8e877e;
-  --color-gray-bold: #7f7f7c;
-  --color-gray-extraBold: #4c4b48;
-  --color-gray-mediumBold: #a2857c;
-  --font-jacquard: "Jacquard 12 Charted", sans-serif;
-  --font-kosugi: "Hubballi", sans-serif;
-  --font-reenie: "Kalam", sans-serif;
-  --breakpoint-3xl: 120rem;
+    --color-panna: #f3f3f3;
+    --color-panna-medium: #f2ece0;
+    --color-gray-light: #beb7ad;
+    --color-gray-medium: #8e877e;
+    --color-gray-bold: #7f7f7c;
+    --color-gray-extraBold: #4c4b48;
+    --color-gray-mediumBold: #a2857c;
+    --font-jacquard: "Jacquard 12 Charted", sans-serif;
+    --font-kosugi: "Hubballi", sans-serif;
+    --font-reenie: "Kalam", sans-serif;
+    --breakpoint-3xl: 120rem;
 }
 
 @layer utilities {
-  .bg-hero {
-    background-image: url("/paper.jpg");
-  }
-  .bg-work {
-    background-image: url("https://arteinbreve.it/wp-content/uploads/2023/11/Johannes-Vermeer-biografia-e-opere-arte-in-breve_2_11zon-736x445.webp");
-  }
+    .bg-hero {
+        background-image: url("/P.webp");
+    }
+    .bg-work {
+        background-image: url("https://arteinbreve.it/wp-content/uploads/2023/11/Johannes-Vermeer-biografia-e-opere-arte-in-breve_2_11zon-736x445.webp");
+    }
 }
 
 .art-shadow {
-  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    box-shadow:
+        rgba(0, 0, 0, 0.19) 0px 10px 20px,
+        rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
