@@ -10,7 +10,7 @@ const Navigatelux = () => {
             const el = document.getElementById("work-section");
             if (el) el.scrollIntoView({ behavior: "smooth" });
           }}
-          className="font-kosugi text-5xl font-extrabold hover: text-gray-light  cursor-pointer md:transition  md:duration-300 md:ease-in-out "
+          className="font-kosugi text-5xl font-extrabold hover:text-gray-light text-gray-bold cursor-pointer md:transition  md:duration-300 md:ease-in-out "
         >
           Work
         </button>
