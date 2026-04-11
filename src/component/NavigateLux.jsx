@@ -16,13 +16,13 @@ const Navigatelux = () => {
         </button>
         <button
           onClick={() => navigate("/awards")}
-          className="font-kosugi text-5xl font-extrabold text-gray-light hover:text-gray-bold cursor-pointer md:transition md:delay-150 md:duration-300 md:ease-in-out md:hover:-translate-y-2 md:hover:scale-120"
+          className="font-kosugi text-5xl font-extrabold hover:text-gray-light text-gray-bold cursor-pointer md:transition  md:duration-300 md:ease-in-out "
         >
           Awards/Shows
         </button>
         <button
           onClick={() => navigate("/about")}
-          className="font-kosugi text-5xl font-extrabold text-gray-light hover:text-gray-bold cursor-pointer md:transition md:delay-150 md:duration-300 md:ease-in-out md:hover:-translate-y-2 md:hover:scale-120"
+          className="font-kosugi text-5xl font-extrabold hover:text-gray-light text-gray-bold cursor-pointer md:transition  md:duration-300 md:ease-in-out "
         >
           About
         </button>
