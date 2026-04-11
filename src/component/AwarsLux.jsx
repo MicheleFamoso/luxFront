@@ -53,7 +53,7 @@ const AwardsLux = () => {
                 </div>
               </div>
               {index !== mostre.length - 1 && (
-                <hr className=" mx-2 md:mx-0 m-2 md:m-6 text-gray-light" />
+                <hr className=" mx-2 md:mx-0 m-2 md:m-6  text-gray-300" />
               )}
             </div>
           ))}
