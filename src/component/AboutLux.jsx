@@ -45,7 +45,7 @@ const AboutLux = () => {
                 <div className="grid md:grid-cols-3 grid-cols-1 mt-6 ">
                   <div className="px-4 md:px-0 md:col-span-2">
                     {" "}
-                    <p className="mt-2 font-light text-2xl md:text-2xl font-reenie md:mb-16 mb-6 text-gray-extraBold">
+                    <p className="mt-2 font-light text-2xl md:text-2xl font-reenie md:mb-13 mb-6 text-gray-extraBold">
                       {bio.bio}
                     </p>
                     <div className="md:mt-3">
