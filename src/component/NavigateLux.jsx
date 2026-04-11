@@ -12,7 +12,7 @@ const Navigatelux = () => {
           }}
           className="font-kosugi text-5xl font-extrabold hover:text-gray-light text-gray-bold cursor-pointer md:transition  md:duration-300 md:ease-in-out "
         >
-          Work
+          Works
         </button>
         <button
           onClick={() => navigate("/awards")}
