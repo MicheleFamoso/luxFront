@@ -5,7 +5,7 @@ const FooterLux = () => {
         className="
          mt-10 md:mt-12  md:m-auto static  md:w-11/12 px-3 md:px-0"
       >
-        <hr className=" mx-2 md:mx-0 mb-2 md:mb-6 text-gray-light" />
+        <hr className=" mx-2 md:mx-0 mb-2 md:mb-6 text-gray-300" />
         <div
           className="grid grid-cols-1 md:grid-cols-3 px-2 md:px-0 md:p-0 mb-8 md:gap-68
         "
